@@ -684,7 +684,7 @@ $(window).bind('beforeunload', function (e) {
 					</div>
 
 					<!-- single member -->
-					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
+					<figure class="team-member col-md-2 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
 						<div class="member-thumb">
 							<img src="img/team/member-1.png" alt="Team Member" class="img-responsive">
 							<figcaption class="overlay">
