@@ -1,0 +1,32 @@
+command to dump database to a sql file.
+
+go to the folder : C:\Program Files\MySQL\MySQL Workbench 6.2 CE \\ for windows , Similarly for linux or MAC
+
+mysqldump -u root -p travelfriend > travelfriend.sql
+
+where -u is root travelfriend is database name 
+
+it will ask for password . provide your mysql passowrd
+
+
+command to import database. 
+
+1. give command mysql -u root -p
+provide your password
+
+2.it will take you to the mysql prompt 
+
+give command create database travelfriend; to your sql prompt 
+
+3. on success give the command quit;
+ 
+4. Now give the command as  
+
+mysql -u root -p travelfriend  < travelfriend.sql 
+
+it will again ask for password provide the passoword. 
+
+Now you can see all changed in workbench. 
+
+Enjoy!!.
+ 
