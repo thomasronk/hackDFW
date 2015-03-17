@@ -23,6 +23,7 @@
         <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
         <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800">
         <style type="text/css">
+        
             @media print { .gm-style .gmnoprint, .gmnoprint { display:none }}@media screen { .gm-style .gmnoscreen, .gmnoscreen { display:none }}
         </style>
         <style type="text/css">
@@ -46,6 +47,8 @@
         <link rel="stylesheet" href="css/main.css">
 		<!-- media-queries -->
         <link rel="stylesheet" href="css/media-queries.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        
 
 		<!-- Modernizer Script for old Browsers -->
         <script src="js/modernizr-2.6.2.min.js"></script>
@@ -1022,8 +1025,12 @@ $(window).bind('beforeunload', function (e) {
   	</div>
 </div>
 
+      <!--
+        New User Registration
+        ==================================== -->
 
-<div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+<div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ov>
 	<div class="modal-dialog">
     	<div class="modal-content">
       		<div class="modal-header login_modal_header">
@@ -1031,41 +1038,66 @@ $(window).bind('beforeunload', function (e) {
         		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         		<h2 class="modal-title" id="myModalLabel">Sign Up!</h2>
       		</div>
-      		<div class="modal-body login-modal">
-      			<!--  <p>Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required</p>-->
+      		<div class="modal-body register-modal">
       			<br/>
       			<div class="clearfix"></div>
-      			<div id='social-icons-conatainer'>
-	        		<div class='modal-body-left'>
+       			<div id='social-icons-conatainer'> 
+<!-- 	        		<div class='modal-body-left'> -->
+
+        <!--
+        Login Credentials
+        ==================================== -->
+        
+						<div class="sec-title text-center mb50 wow bounceInDown animated" data-wow-duration="500ms">
+							<h2>Login Credentials</h2>
+						</div>
+						
 	        			<div class="form-group">
-		              		<input type="text" id="username" placeholder="Enter your name" value="" class="form-control login-field">
-		              		<i class="fa fa-user login-field-icon"></i>
+		              		<input type="text" id="useradd-name" placeholder="Enter your user id" value="" class="form-control login-field">
+		              		<i class="fa fa-user-plus login-field-icon"></i>
 		            	</div>
 		
 		            	<div class="form-group">
-		            	  	<input type="password" id="login-pass" placeholder="Password" value="" class="form-control login-field">
+		            	  	<input type="password" id="useradd-pass" placeholder="Password" value="" class="form-control login-field">
 		              		<i class="fa fa-lock login-field-icon"></i>
 		            	</div>
+		            	
+		            	<div class="form-group">
+		            	  	<input type="password" id="useradd-pass-confirm" placeholder="Confirm Password" value="" class="form-control login-field">
+		              		<i class="fa fa-lock login-field-icon"></i>
+		            	</div>
+		            	
+		  <!--
+        Tell us about yourself
+        ==================================== -->
+        
+		            	<div class="sec-title text-center mb50 wow bounceInDown animated" data-wow-duration="500ms">
+							<h2>Tell us about yourself!</h2>
+						</div>
+						
+						<div class="form-group">
+		            	  	<input type="text" id="useradd-fname" placeholder="First Name" value="" class="form-control login-field">
+		              		<i class="fa fa-male login-field-icon"></i>
+		            	</div>
+		            	
+		            	<div class="form-group">
+		            	  	<input type="text" id="useradd-lname" placeholder="Last Name" value="" class="form-control login-field">
+		              		<i class="fa fa-male login-field-icon"></i>
+		            	</div>
+		            	
+		            	<div class="form-group">
+		            	  	<input type="text" id="useradd-location" placeholder="Where are you located?" value="" class="form-control login-field">
+		              		<i class="fa fa-location-arrow login-field-icon"></i>
+		            	</div>
+		            	
 		
-		            	<a href="#" id="signins" class="btn btn-success modal-login-btn">Login</a>
-		            	<a href="#" class="login-link text-center">Lost your password?</a>
-	        		</div>
-	        	
-	        		<div class='modal-body-right'>
-	        			<div class="modal-social-icons">
-	        				<a href='#' class="btn btn-default facebook"> <i class="fa fa-facebook modal-icons"></i> Sign In with Facebook </a>
-	        				<a href='#' class="btn btn-default twitter"> <i class="fa fa-twitter modal-icons"></i> Sign In with Twitter </a>
-	        				<a href='#' class="btn btn-default google"> <i class="fa fa-google-plus modal-icons"></i> Sign In with Google </a>
-	        				<a href='#' class="btn btn-default linkedin"> <i class="fa fa-linkedin modal-icons"></i> Sign In with Linkedin </a>
-	        			</div> 
-	        		</div>	
-	        		<div id='center-line'> OR </div>
+		            	<a id="registerBtn" class="btn btn-success" onclick="validateNRegister()">Register</a>
+<!-- 		            	<a href="#" class="login-link text-center">Lost your password?</a> -->
+<!-- 	        		</div> -->
+	        
 	        	</div>																												
         		<div class="clearfix"></div>
         		
-        		 <div class="form-group modal-register-btn">
-        			<button class="btn btn-default"class="close" data-dismiss="modal" aria-hidden="true">&times;> New User Please Register</button>
-        		</div>
       		</div>
       		<div class="clearfix"></div>
       		<div class="modal-footer login_modal_footer">
@@ -1074,6 +1106,53 @@ $(window).bind('beforeunload', function (e) {
   	</div>
 </div>
 
+<script type="text/javascript">
+function validateNRegister() {
+	resetColor();
+	if(document.getElementById("useradd-name").value=="")
+		{
+			console.log("User ID field Empty");
+			document.getElementById("useradd-name").style.background="#F6D8CE";
+			return false;
+		}
+	else if(document.getElementById("useradd-pass").value=="")
+	{
+		console.log("Password Field is empty");
+		document.getElementById("useradd-pass").style.background="#F6D8CE";
+	}
+	else if(document.getElementById("useradd-pass-confirm").value=="")
+	{
+		console.log("Confirm Password field is empty");
+		document.getElementById("useradd-pass-confirm").style.background="#F6D8CE";
+	}
+	else if(document.getElementById("useradd-fname").value=="")
+	{
+		console.log("First name field is empty");
+		document.getElementById("useradd-fname").style.background="#F6D8CE";
+	}
+	else if(document.getElementById("useradd-fname").value=="")
+	{
+		console.log("First name field is empty");
+		document.getElementById("useradd-lname").style.background="#F6D8CE";
+	}
+	else if(document.getElementById("useradd-fname").value=="")
+	{
+		console.log("First name field is empty");
+		document.getElementById("useradd-location").style.background="#F6D8CE";
+	}
+	alert("under Construction");
+	};
+	
+function resetColor(){
+	console.log("Resetting color");
+	document.getElementById("useradd-name").style.background="transparent";
+	document.getElementById("useradd-pass").style.background="transparent";
+	document.getElementById("useradd-pass-confirm").style.background="transparent";
+	document.getElementById("useradd-fname").style.background="transparent";
+	document.getElementById("useradd-lname").style.background="transparent";
+	document.getElementById("useradd-location").style.background="transparent";
+};	
+</script>
 
 		<!-- Essential jQuery Plugins
 		================================================== -->
