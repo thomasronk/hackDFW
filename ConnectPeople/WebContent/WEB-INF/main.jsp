@@ -1015,7 +1015,7 @@ $(window).bind('beforeunload', function (e) {
         		<div class="clearfix"></div>
         		
         		<div class="form-group modal-register-btn">
-						<a class="btn btn-primary" href="#register-modal" data-toggle="modal" data-dismiss="modal">New User? Sign Up!</a>
+						<a class="btn btn-success" href="#register-modal" data-toggle="modal" data-dismiss="modal">New User? Sign Up!</a>
         		</div>
       		</div>
       		<div class="clearfix"></div>
@@ -1048,21 +1048,21 @@ $(window).bind('beforeunload', function (e) {
         Login Credentials
         ==================================== -->
         
-						<div class="sec-title text-center mb50 wow bounceInDown animated" data-wow-duration="500ms">
+						<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1500ms">
 							<h2>Login Credentials</h2>
 						</div>
 						
-	        			<div class="form-group">
+	        			<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
 		              		<input type="text" id="useradd-name" placeholder="Enter your user id" value="" class="form-control login-field">
 		              		<i class="fa fa-user-plus login-field-icon"></i>
 		            	</div>
 		
-		            	<div class="form-group">
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
 		            	  	<input type="password" id="useradd-pass" placeholder="Password" value="" class="form-control login-field">
 		              		<i class="fa fa-lock login-field-icon"></i>
 		            	</div>
 		            	
-		            	<div class="form-group">
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
 		            	  	<input type="password" id="useradd-pass-confirm" placeholder="Confirm Password" value="" class="form-control login-field">
 		              		<i class="fa fa-lock login-field-icon"></i>
 		            	</div>
@@ -1071,24 +1071,37 @@ $(window).bind('beforeunload', function (e) {
         Tell us about yourself
         ==================================== -->
         
-		            	<div class="sec-title text-center mb50 wow bounceInDown animated" data-wow-duration="500ms">
+		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1500ms">
 							<h2>Tell us about yourself!</h2>
 						</div>
 						
-						<div class="form-group">
+						<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
 		            	  	<input type="text" id="useradd-fname" placeholder="First Name" value="" class="form-control login-field">
 		              		<i class="fa fa-male login-field-icon"></i>
 		            	</div>
 		            	
-		            	<div class="form-group">
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
 		            	  	<input type="text" id="useradd-lname" placeholder="Last Name" value="" class="form-control login-field">
 		              		<i class="fa fa-male login-field-icon"></i>
 		            	</div>
 		            	
-		            	<div class="form-group">
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
+		            	  	<input type="text" id="useradd-dob" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Date of Birth" value="" class="form-control login-field" style="margin-right: 20px">
+		            	</div>
+		            	
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
 		            	  	<input type="text" id="useradd-location" placeholder="Where are you located?" value="" class="form-control login-field">
 		              		<i class="fa fa-location-arrow login-field-icon"></i>
 		            	</div>
+		            	
+		            			  <!--
+        Alright! So what kind of expert are you?
+        ==================================== -->
+        
+		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1500ms">
+							<h2>Alright! So, of what are you an expert of?</h2>
+							<h4>You can pick from the options below...</h2>
+						</div>
 		            	
 		
 		            	<a id="registerBtn" class="btn btn-success" onclick="validateNRegister()">Register</a>
@@ -1109,12 +1122,28 @@ $(window).bind('beforeunload', function (e) {
 <script type="text/javascript">
 function validateNRegister() {
 	resetColor();
+	nullCheck();
+	pwdMatchCheck();
+	//alert("under Construction");
+};
+	
+function resetColor(){
+	console.log("Resetting color");
+	document.getElementById("useradd-name").style.background="transparent";
+	document.getElementById("useradd-pass").style.background="transparent";
+	document.getElementById("useradd-pass-confirm").style.background="transparent";
+	document.getElementById("useradd-fname").style.background="transparent";
+	document.getElementById("useradd-lname").style.background="transparent";
+	document.getElementById("useradd-location").style.background="transparent";
+};	
+
+function nullCheck(){
 	if(document.getElementById("useradd-name").value=="")
-		{
-			console.log("User ID field Empty");
-			document.getElementById("useradd-name").style.background="#F6D8CE";
-			return false;
-		}
+	{
+		console.log("User ID field Empty");
+		document.getElementById("useradd-name").style.background="#F6D8CE";
+		return false;
+	}
 	else if(document.getElementById("useradd-pass").value=="")
 	{
 		console.log("Password Field is empty");
@@ -1130,28 +1159,24 @@ function validateNRegister() {
 		console.log("First name field is empty");
 		document.getElementById("useradd-fname").style.background="#F6D8CE";
 	}
-	else if(document.getElementById("useradd-fname").value=="")
+	else if(document.getElementById("useradd-lname").value=="")
 	{
 		console.log("First name field is empty");
 		document.getElementById("useradd-lname").style.background="#F6D8CE";
 	}
-	else if(document.getElementById("useradd-fname").value=="")
+	else if(document.getElementById("useradd-location").value=="")
 	{
 		console.log("First name field is empty");
 		document.getElementById("useradd-location").style.background="#F6D8CE";
 	}
-	alert("under Construction");
-	};
-	
-function resetColor(){
-	console.log("Resetting color");
-	document.getElementById("useradd-name").style.background="transparent";
-	document.getElementById("useradd-pass").style.background="transparent";
-	document.getElementById("useradd-pass-confirm").style.background="transparent";
-	document.getElementById("useradd-fname").style.background="transparent";
-	document.getElementById("useradd-lname").style.background="transparent";
-	document.getElementById("useradd-location").style.background="transparent";
-};	
+};
+
+function pwdMatchCheck(){
+	if((document.getElementById("useradd-pass").value)!=(document.getElementById("useradd-pass-confirm").value))
+		{
+			console.log("Passwords do not match");
+		}
+};
 </script>
 
 		<!-- Essential jQuery Plugins
