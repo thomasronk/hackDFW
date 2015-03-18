@@ -47,7 +47,11 @@
         <link rel="stylesheet" href="css/main.css">
 		<!-- media-queries -->
         <link rel="stylesheet" href="css/media-queries.css">
+        <link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
+        <link href="css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
+        <link href="path/to/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
         
 
 		<!-- Modernizer Script for old Browsers -->
@@ -1071,26 +1075,33 @@ $(window).bind('beforeunload', function (e) {
         Tell us about yourself
         ==================================== -->
         
-		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1500ms">
+		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1000ms">
 							<h2>Tell us about yourself!</h2>
 						</div>
 						
-						<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
+						<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
 		            	  	<input type="text" id="useradd-fname" placeholder="First Name" value="" class="form-control login-field">
 		              		<i class="fa fa-male login-field-icon"></i>
 		            	</div>
 		            	
-		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
 		            	  	<input type="text" id="useradd-lname" placeholder="Last Name" value="" class="form-control login-field">
 		              		<i class="fa fa-male login-field-icon"></i>
 		            	</div>
 		            	
-		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
 		            	  	<input type="text" id="useradd-dob" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Date of Birth" value="" class="form-control login-field" style="margin-right: 20px">
 		            	</div>
 		            	
-		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
-		            	  	<input type="text" id="useradd-location" placeholder="Where are you located?" value="" class="form-control login-field">
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
+		            	  	<input type="tel" id="useradd-phone" placeholder="Phone number" value="" class="form-control login-field">
+		              		<i class="fa fa-phone login-field-icon"></i>
+		            	</div>
+		            	
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
+		            	  <select id ="useradd-location" placeholder="Where you located at?" class="form-control">
+						   <option value="">Where are you located?</option>
+							</select>
 		              		<i class="fa fa-location-arrow login-field-icon"></i>
 		            	</div>
 		            	
@@ -1098,16 +1109,41 @@ $(window).bind('beforeunload', function (e) {
         Alright! So what kind of expert are you?
         ==================================== -->
         
-		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1500ms">
+		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1000ms">
 							<h2>Alright! So, of what are you an expert of?</h2>
-							<h4>You can pick from the options below...</h2>
+							<h4>(Restaurants,Libraries,Pubs....stuff like that!)</h4>
 						</div>
 		            	
+						<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
+		            	  	<input name="tags" id="useradd-tags" class="form-control" placeholder="Bars,Pubs,Restaurants">
+		              		<i class="fa fa-tag login-field-icon"></i>
+		            	</div>
 		
-		            	<a id="registerBtn" class="btn btn-success" onclick="validateNRegister()">Register</a>
-<!-- 		            	<a href="#" class="login-link text-center">Lost your password?</a> -->
-<!-- 	        		</div> -->
-	        
+		
+		  <!--
+       Awesome about urself
+        ==================================== -->
+        
+		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1000ms">
+							<h2>Tell us something awesome about yourself!</h2>
+						</div>
+						
+						<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
+		            	  	<textarea id="useradd-aboutme" placeholder="About you..." value="" class="form-control login-field"></textarea>
+		              		<i class="fa fa-info login-field-icon"></i>
+		            	</div>
+		            			  <!--
+      Upload pHoto
+        ==================================== -->
+						<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1000ms">
+							<h2>Upload a duck selfie here.(Or a normal snap would do fine too!)</h2>
+						</div>
+		
+		            	<a id="registerBtn" class="btn btn-success text-center" onclick="validateNRegister()">Register</a>
+
+						<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
+	        				<h4 id="error-msg" style="visibility:hidden">Some Error</h4>
+	        			</div>
 	        	</div>																												
         		<div class="clearfix"></div>
         		
@@ -1122,9 +1158,23 @@ $(window).bind('beforeunload', function (e) {
 <script type="text/javascript">
 function validateNRegister() {
 	resetColor();
-	nullCheck();
-	pwdMatchCheck();
+	if(!nullCheck())
+		{
+			console.log("Null Check hasnt passedd");
+			document.getElementById("error-msg").style.visibility = "visible";
+			$("#error-msg").text("I think you left some field blank. I've highlighted it for you. Please scroll up and check");
+
+		}
+	else if(!pwdMatchCheck())
+		{
+			console.log("Password check hasnt passedd");
+			$("#error-msg").text("The passwords that you've entered are different! ");
+		}
 	//alert("under Construction");
+	else {
+		console.log("All checks passed");
+		document.getElementById("error-msg").style.visibility = "hidden";
+	}
 };
 	
 function resetColor(){
@@ -1134,10 +1184,17 @@ function resetColor(){
 	document.getElementById("useradd-pass-confirm").style.background="transparent";
 	document.getElementById("useradd-fname").style.background="transparent";
 	document.getElementById("useradd-lname").style.background="transparent";
-	document.getElementById("useradd-location").style.background="transparent";
 };	
 
+function resetFields(){
+	console.log("Resetting all fields");
+	var select = document.getElementById("useradd-location");
+	select.options.length = 0;
+
+}
+
 function nullCheck(){
+	
 	if(document.getElementById("useradd-name").value=="")
 	{
 		console.log("User ID field Empty");
@@ -1148,34 +1205,42 @@ function nullCheck(){
 	{
 		console.log("Password Field is empty");
 		document.getElementById("useradd-pass").style.background="#F6D8CE";
+		return false;
 	}
 	else if(document.getElementById("useradd-pass-confirm").value=="")
 	{
 		console.log("Confirm Password field is empty");
 		document.getElementById("useradd-pass-confirm").style.background="#F6D8CE";
+		return false;
 	}
 	else if(document.getElementById("useradd-fname").value=="")
 	{
 		console.log("First name field is empty");
 		document.getElementById("useradd-fname").style.background="#F6D8CE";
+		return false;
 	}
 	else if(document.getElementById("useradd-lname").value=="")
 	{
-		console.log("First name field is empty");
+		console.log("Lname field is empty");
 		document.getElementById("useradd-lname").style.background="#F6D8CE";
+		return false;
 	}
-	else if(document.getElementById("useradd-location").value=="")
-	{
-		console.log("First name field is empty");
-		document.getElementById("useradd-location").style.background="#F6D8CE";
-	}
+	
+	else
+		{return true;}
 };
 
 function pwdMatchCheck(){
 	if((document.getElementById("useradd-pass").value)!=(document.getElementById("useradd-pass-confirm").value))
 		{
 			console.log("Passwords do not match");
+			return false;
 		}
+	else
+		{
+		return true;
+		}
+
 };
 </script>
 
@@ -1207,6 +1272,8 @@ function pwdMatchCheck(){
 		<!-- jquery easing -->
         <script src="js/wow.min.js"></script>
         <script src="js/jquery-ui.js"></script>
+        <script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/fileinput.min.js"></script>
 		<script>
             var wow = new WOW ({
                         boxClass: 'wow', // animated element css class (default is wow)
@@ -1232,17 +1299,33 @@ function pwdMatchCheck(){
 				   $( "#placeTextField1" ).autocomplete({
 		              source: availableTags
 		         });
+				   
+			var select = document.getElementById("useradd-location");
+			for(index in data) {
+				select.options[select.options.length] = new Option(data[index], index);
+
+			}
+
+
+				/*for (var i = 0; i < data.length; i++) {
+					  options += '<option value="' + result[i].ImageFolderID + '">' + result[i].Name + '</option>';
+				}*/
+					
 		    });
-			
 			
 			
 			$.getJSON( "tags", function( data ) {
 		    	  console.log(data);
-		    	  availableTags = data;
+		    	  existingTags = data;
 				  
 				   $( "#placeTextField" ).autocomplete({
 		              source: availableTags
 		         });
+				   console.log(availableTags);
+				   $('#useradd-tags').tagit({
+					   availableTags:existingTags
+		            }); 
+				   
 		    });
 				$("#getpeople").click(function(){
 			    	console.log("Asdasdasdas");
