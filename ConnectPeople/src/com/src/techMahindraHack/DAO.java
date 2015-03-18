@@ -12,6 +12,7 @@ public class DAO {
 
 	public List<String> getLocations() {
 		Connection conn = null;
+		int test = 0 ; 
 		List<String> locations = new ArrayList<String>();
 		try {
 			try {
