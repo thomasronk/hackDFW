@@ -51,7 +51,7 @@
         <link href="css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
         <link href="path/to/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+<!--         <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css"> -->
         
 
 		<!-- Modernizer Script for old Browsers -->
@@ -1033,7 +1033,6 @@ $(window).bind('beforeunload', function (e) {
         New User Registration
         ==================================== -->
 
-
 <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ov>
 	<div class="modal-dialog">
     	<div class="modal-content">
@@ -1052,21 +1051,21 @@ $(window).bind('beforeunload', function (e) {
         Login Credentials
         ==================================== -->
         
-						<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1500ms">
+						<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
 							<h2>Login Credentials</h2>
 						</div>
 						
-	        			<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
+	        			<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
 		              		<input type="text" id="useradd-name" placeholder="Enter your user id" value="" class="form-control login-field">
 		              		<i class="fa fa-user-plus login-field-icon"></i>
 		            	</div>
 		
-		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
 		            	  	<input type="password" id="useradd-pass" placeholder="Password" value="" class="form-control login-field">
 		              		<i class="fa fa-lock login-field-icon"></i>
 		            	</div>
 		            	
-		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1500ms">
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
 		            	  	<input type="password" id="useradd-pass-confirm" placeholder="Confirm Password" value="" class="form-control login-field">
 		              		<i class="fa fa-lock login-field-icon"></i>
 		            	</div>
@@ -1075,30 +1074,30 @@ $(window).bind('beforeunload', function (e) {
         Tell us about yourself
         ==================================== -->
         
-		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1000ms">
+		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
 							<h2>Tell us about yourself!</h2>
 						</div>
 						
-						<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
+						<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
 		            	  	<input type="text" id="useradd-fname" placeholder="First Name" value="" class="form-control login-field">
 		              		<i class="fa fa-male login-field-icon"></i>
 		            	</div>
 		            	
-		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
 		            	  	<input type="text" id="useradd-lname" placeholder="Last Name" value="" class="form-control login-field">
 		              		<i class="fa fa-male login-field-icon"></i>
 		            	</div>
 		            	
-		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
 		            	  	<input type="text" id="useradd-dob" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Date of Birth" value="" class="form-control login-field" style="margin-right: 20px">
 		            	</div>
 		            	
-		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
-		            	  	<input type="tel" id="useradd-phone" placeholder="Phone number" value="" class="form-control login-field">
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
+		            	  	<input type="number" id="useradd-phone" placeholder="Phone number" value="" class="form-control login-field">
 		              		<i class="fa fa-phone login-field-icon"></i>
 		            	</div>
 		            	
-		            	<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
+		            	<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
 		            	  <select id ="useradd-location" placeholder="Where you located at?" class="form-control">
 						   <option value="">Where are you located?</option>
 							</select>
@@ -1109,12 +1108,12 @@ $(window).bind('beforeunload', function (e) {
         Alright! So what kind of expert are you?
         ==================================== -->
         
-		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1000ms">
+		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
 							<h2>Alright! So, of what are you an expert of?</h2>
 							<h4>(Restaurants,Libraries,Pubs....stuff like that!)</h4>
 						</div>
 		            	
-						<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
+						<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
 		            	  	<input name="tags" id="useradd-tags" class="form-control" placeholder="Bars,Pubs,Restaurants">
 		              		<i class="fa fa-tag login-field-icon"></i>
 		            	</div>
@@ -1124,25 +1123,29 @@ $(window).bind('beforeunload', function (e) {
        Awesome about urself
         ==================================== -->
         
-		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1000ms">
+		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
 							<h2>Tell us something awesome about yourself!</h2>
 						</div>
 						
-						<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
+						<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
 		            	  	<textarea id="useradd-aboutme" placeholder="About you..." value="" class="form-control login-field"></textarea>
 		              		<i class="fa fa-info login-field-icon"></i>
 		            	</div>
 		            			  <!--
       Upload pHoto
         ==================================== -->
-						<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="1000ms">
+						<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
 							<h2>Upload a duck selfie here.(Or a normal snap would do fine too!)</h2>
 						</div>
 		
 		            	<a id="registerBtn" class="btn btn-success text-center" onclick="validateNRegister()">Register</a>
 
-						<div class="form-group wow slideInLeft animated" data-wow-duration="1000ms">
-	        				<h4 id="error-msg" style="visibility:hidden">Some Error</h4>
+						<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
+<!-- 	        				<h5 class="text-center" id="error-msg" style="visibility:hidden">Some Error</h5> -->
+	        				<div id="error-msg" class="alert alert-danger alert-error" style="visibility: hidden">
+        <a href="#" class="close" data-dismiss="alert" >&times;</a>
+        <strong>Error!</strong> A problem has been occurred while submitting your data.
+    </div>
 	        			</div>
 	        	</div>																												
         		<div class="clearfix"></div>
@@ -1155,6 +1158,7 @@ $(window).bind('beforeunload', function (e) {
   	</div>
 </div>
 
+
 <script type="text/javascript">
 function validateNRegister() {
 	resetColor();
@@ -1162,19 +1166,38 @@ function validateNRegister() {
 		{
 			console.log("Null Check hasnt passedd");
 			document.getElementById("error-msg").style.visibility = "visible";
-			$("#error-msg").text("I think you left some field blank. I've highlighted it for you. Please scroll up and check");
+			document.getElementById("error-msg").style.color = "red";
+			$("#error-msg").text ("I think you left some field blank. I've highlighted it for you. Please scroll up and check");
 
 		}
 	else if(!pwdMatchCheck())
 		{
 			console.log("Password check hasnt passedd");
+			document.getElementById("error-msg").style.color = "red";
 			$("#error-msg").text("The passwords that you've entered are different! ");
 		}
-	//alert("under Construction");
+	else if(!ageCheck())
+	{
+		console.log("Age check hasnt passedd");
+		document.getElementById("error-msg").style.color = "red";
+		$("#error-msg").text("You arent 18 years yet! ");
+	}
 	else {
 		console.log("All checks passed");
 		document.getElementById("error-msg").style.visibility = "hidden";
 	}
+	
+		$.getJSON( "register?uname="+$("#useradd-name").val()+"&pwd="+$("#useradd-pass").val()+"&fname="+$("#useradd-fname").val()+"&lname="+$("#useradd-lname").val()+"&dob="+$("#useradd-dob").val()+"&phno="+$("#useradd-phone").val()+"&location="+$("#useradd-location").val(), function( data ) {
+			console.log(data);
+				//for(var i=0;i<data.length;i++){
+            	//var divToAppend = "<figure class=\"mix work-item photography\" style=\"display: inline-block;\"><img alt=\"\" src=\"img/works/item-8.jpg\"><figcaption class=\"overlay\"><a data-toggle=\"modal\" data-target=\"#expertModal\" title=\"Connect to ME\" rel=\"works\"><i class=\"fa fa-eye fa-lg\"></i></a><h4>"+data[i].name+"</h4><p>"+data[i].location+"</p></figcaption></figure>";
+                //jQuery("#MixItUp76F363").append(divToAppend);
+            //}
+				
+				//$( "#whoWe" ).trigger( "click" );
+				
+		});
+		
 };
 	
 function resetColor(){
@@ -1184,6 +1207,7 @@ function resetColor(){
 	document.getElementById("useradd-pass-confirm").style.background="transparent";
 	document.getElementById("useradd-fname").style.background="transparent";
 	document.getElementById("useradd-lname").style.background="transparent";
+	document.getElementById("useradd-aboutme").style.background="transparent";
 };	
 
 function resetFields(){
@@ -1194,6 +1218,9 @@ function resetFields(){
 }
 
 function nullCheck(){
+	
+	var e = document.getElementById("useradd-location");
+	var strUser = e.options[e.selectedIndex].text;
 	
 	if(document.getElementById("useradd-name").value=="")
 	{
@@ -1225,6 +1252,19 @@ function nullCheck(){
 		document.getElementById("useradd-lname").style.background="#F6D8CE";
 		return false;
 	}
+	else if(strUser=="Where are you located?")
+	{
+		console.log("Location field is empty");
+		document.getElementById("useradd-location").style.background="#F6D8CE";
+		return false;
+	}
+	else if(document.getElementById("useradd-aboutme").value=="")
+	{
+		console.log("About me field is empty");
+		document.getElementById("useradd-aboutme").style.background="#F6D8CE";
+		return false;
+	}
+
 	
 	else
 		{return true;}
@@ -1241,6 +1281,31 @@ function pwdMatchCheck(){
 		return true;
 		}
 
+};
+
+function ageCheck(){
+	var dateArray = document.getElementById("useradd-dob").value.split("-");
+	//console.log(dateArray[1], dateArray[2], dateArray[0]);
+	var enteredDate = dateArray[1]+"/"+dateArray[2]+"/"+dateArray[0];
+	//console.log("Entered date is "+enteredDate);
+	
+	var date2 = new Date(enteredDate);
+	
+	var ageDifMs = Date.now() - date2.getTime();
+	var ageDate = new Date(ageDifMs); // miliseconds from epoch
+	var age=(Math.abs(ageDate.getUTCFullYear() - 1970));
+	console.log("You are"+age+"years old");
+	
+	if(age<18)
+	{
+		console.log("You are under 18 years old");
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+	
 };
 </script>
 
