@@ -7,13 +7,13 @@
 /* Global Styles */
 
 body {
-    margin-top: 100px;
+    margin-top: 0px;
     background-color: #222;
 }
 
 @media(min-width:768px) {
     body {
-        margin-top: 50px;
+        margin-top: 0px;
     }
 }
 
@@ -221,4 +221,13 @@ ul.alert-dropdown {
 
 .panel-yellow a:hover {
     color: #df8a13;
+}
+
+.Rating-hover {
+	visibility: hidden;
+}
+
+.Rating:hover + .Rating-hover{
+		background-color : yellow;
+		visibility: visible;
 }

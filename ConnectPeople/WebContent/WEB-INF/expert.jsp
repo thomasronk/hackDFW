@@ -455,7 +455,71 @@ $(window).bind('beforeunload', function (e) {
     });
     
     
+    
 </script>
+	 <script type="text/javascript">
+	 
+	$(document).ready(function() {
+		 $("#name-text").show();
+		 $("#name-text-insert").hide();
+		 $("#sex-text").show();
+		 $("#sex-text-insert").hide();
+		 $("#interest-text").show();
+		 $("#interest-text-insert").hide();
+		 $("#Description-text").show();
+		 $("#Description-text-insert").hide();
+		 $("#edit").show();
+		 $("#save").hide();
+	    });
+	
+	$(function() {
+	      $("#edit").click( function()
+	           { 
+		 		 $("#name-text").hide();
+				 $("#name-text-insert").show();
+		    	 $("#Full-Name").val($("#name-text").text());
+				 $("#sex-text").hide();
+				 $("#sex-text-insert").show();
+				 if($("input[type='radio'][name=inlineRadioOptions]:checked" == " Male")){
+					 $("#inlineRadio1").prop("checked", true);
+				 }else{
+					 $("#inlineRadio2").prop("checked", true);
+				 }
+				 $( "#myselect option:selected" ).text($("#interest-text").text());
+				 $("#interest-text").hide();
+				 $("#interest-text-insert").show();
+				 $("#Description-text").hide();
+				 $("#Description-text-insert").show();
+				 $("#textareadesp").val($("#Description-text").text());
+	    	 	 $("#edit").hide();
+	    	  	 $("#save").show();
+	           }
+	      );
+	});
+	
+	
+$(function() {
+    $("#save").click( function()
+         {
+		 $("#name-text").show();
+		 $("#name-text-insert").hide();
+    	 $("#name-text").text($("#Full-Name").val());
+		 $("#sex-text").show();
+		 $("#sex-text-insert").hide();
+		 $("#sex-text").text($("input[type='radio'][name=inlineRadioOptions]:checked").val());
+		 $("#interest-text").show();
+		 $("#interest-text-insert").hide();
+		 $("#interest-text").text($( "#myselect option:selected" ).text());
+		 $("#Description-text").show();
+		 $("#Description-text-insert").hide();
+		 $("#Description-text").text($("#textareadesp").val());
+		 $("#edit").show();
+		 $("#save").hide();
+         }
+    );
+});
+	</script>
+
 	
     <!--change kandy css -->
     <style>
@@ -477,81 +541,214 @@ $(window).bind('beforeunload', function (e) {
 
             <div class="container-fluid">
             		<div class="row">
-                    <div class="col-xs-4">
+                    <div class="col-xs-2">
                         <img style="width: 187px;height: 188px;border-radius: 179px;-webkit-border-radius: 155px;-moz-border-radius: 150px;" src="img/works/item-1.jpg">
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Prashant Prakash
-                            </li>
-                        </ol>
                     </div>
-                     <div class="col-xs-8">
-                        <p>
-                        	                        </p>
+                     <div class="col-xs-10">
+                       <ol class="breadcrumb">
+                       	<div class="row">
+                       		<div class="col-xs-11">
+	                            <span class="active">
+	                                <span><b>Name : </b></span>
+	                                <span id = "name-text"><i>Sunish Sheth</i></span>
+	                                <span id = "name-text-insert"><input type="text" class="form-control" id="Full-Name" placeholder="Full Name" style="display: inline; width:50%;"></span><br>
+	                               	<span><b>Sex :</b></span> 
+	                               	<span id = "sex-text"><i>Male</i></span>
+	                               	<span id = "sex-text-insert">
+	                               		<label class="radio-inline">
+										  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Male"> Male
+										</label>
+										<label class="radio-inline">
+										  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Female"> Female
+										</label>
+	                               	</span><br>
+	                                <span><b>Interest :</b></span> 
+	                                <span id = "interest-text"><i>Bars</i></span>
+	                                <span id = "interest-text-insert">
+	                                	<select id = "myselect" class="form-control" style="display: inline; width:50%;">
+										  <option>Bars</option>
+										  <option>Restaurants</option>
+										  <option>Amusements</option>
+										  <option>Hangouts</option>
+										  <option>Dance Floors</option>
+										</select>
+	                                </span><br>
+	                            </span>
+	                            <span><b>Description :</b></span> 
+	                            <span id = "Description-text">
+	                            	<i>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</i>
+	                            </span>
+	                            <span id = "Description-text-insert"><textarea class="form-control" rows="3" id="textareadesp"></textarea></span><br>
+	                            <span class = "Rating">
+	                            <b>Ratings :</b>
+	                            	<img style="width: 20px;height: 20px;" src="http://png-5.findicons.com/files/icons/1620/crystal_project/128/keditbookmarks.png">
+	                            	<img style="width: 20px;height: 20px;" src="http://png-5.findicons.com/files/icons/1620/crystal_project/128/keditbookmarks.png">
+	                            	<img style="width: 20px;height: 20px;" src="http://png-5.findicons.com/files/icons/1620/crystal_project/128/keditbookmarks.png">
+	                            	<img style="width: 20px;height: 20px;" src="http://png-5.findicons.com/files/icons/1620/crystal_project/128/keditbookmarks.png">
+	                            	<img style="width: 20px;height: 20px;" src="https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/star-128.png">
+	                            </span>
+	                            <span class = "Rating-hover">
+	                            	<i>You need to complete xyz for 5 star</i>
+	                            </span>
+	                         </div>
+                            <div class="col-xs-1">
+                           	   <button type="button" class="btn btn-default" id="edit">
+									  <img style="width: 20px;height: 20px;" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/512/edit.png">
+								</button>
+								<button type="button" class="btn btn-default" id="save">
+									  <img style="width: 20px;height: 20px;" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/save.png">
+								</button>
+                            </div>
+                          </div>
+                        </ol>
                     </div>
                 	</div>
                 <a id="incomingCall" data-toggle="modal" data-target="#expertModal" title="Incoming Call" rel="works" style="display:none"></a>
-                	
-                	
-                	 <div class="row">
-                     <div class="col-lg-12">
-                        Interest
-                     </div>
-                   </div>
+               
+               <div class="row">
+	               <div class="col-xs-12">
+	               		<p><br></p>
+	               </div>
+               </div>
+               
                    
                 <div class="row">
-               
-                    <div class="col-xs-6">
-                       		<div class="panel panel-green">
-                            <div class="panel-heading">
-                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> PSTN Call Statistics</h3>
-                            </div>
-                            <div class="panel-body">
-                               <div id="chart1"></div>
-                            </div>
-                            </div>
-                      
-                    </div>
                     
-                    <div class="col-xs-6">
-                        	<div class="panel panel-green">
-                            <div class="panel-heading">
-                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Video Call Statistics</h3>
+                    <div class="col-xs-8">
+                    		<div class="row">
+                    			<div class="col-xs-6">
+                    			<div class="panel panel-green">
+		                            <div class="panel-heading">
+		                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> PSTN Call Statistics</h3>
+		                            </div>
+		                            <div class="panel-body">
+		                               <div id="chart1"></div>
+		                            </div>
+		                            </div>
+	                            </div>
+	                            <div class="col-xs-6">
+		                        	<div class="panel panel-green">
+		                            <div class="panel-heading">
+		                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Video Call Statistics</h3>
+		                            </div>
+		                            <div class="panel-body">
+		                                <div id="chart2"></div>
+		                            </div>
+		                            </div>
+	                            </div>
                             </div>
-                            <div class="panel-body">
-                                <div id="chart2"></div>
-                            </div>
+                            <div class="row">
+                            	<div class="col-xs-6">
+		                            <div class="panel panel-green">
+		                            <div class="panel-heading">
+		                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Audio Call Statistics</h3>
+		                            </div>
+		                            <div class="panel-body">
+		                               <div id="chart3"></div>
+		                            </div>
+		                            </div>
+	                            </div>
+	                            <div class="col-xs-6">
+		                            <div class="panel panel-green">
+		                            <div class="panel-heading">
+		                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Message Call Statistics</h3>
+		                            </div>
+		                            <div class="panel-body">
+		                                <div id="chart4"></div>
+		                            </div>
+		                            </div>
+	                            </div>
                             </div>
                         
                     </div>
-                 
                     
-                </div>
-                
-                <div class="row">
-               
-                    <div class="col-xs-6">
+                    <div class="col-xs-4">
                        		<div class="panel panel-green">
                             <div class="panel-heading">
-                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Audio Call Statistics</h3>
+                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Reviews</h3>
                             </div>
                             <div class="panel-body">
-                               <div id="chart3"></div>
+                                <div id="review">
+                                	<div class="row" style = "padding-top:10px">
+                                		<div class="col-xs-12">
+                                			<span><b>Name :</b></span><span> ABC</span><br>
+                                			<span><b>Suggestion :</b></span><span> XYZ Bar</span><br>
+                                			<span><b>Comment on place:</b></span><span> <i>I really very recommendation </i></span><br>
+                                			<span><b>Comment on user:</b></span><span> <i>The user was very sweet while talking and helpful.</i> </span><br>
+                                			<button type="button" class="btn btn-default">
+											  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Helpful
+											</button>
+											<button type="button" class="btn btn-default">
+											  <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> Not Helpful
+											</button>
+                                		</div>
+                                	</div>
+                                	<div class="row" style = "padding-top:10px">
+                                		<div class="col-xs-12">
+                                			<span><b>Name :</b></span><span> ASD</span><br>
+                                			<span><b>Suggestion :</b></span><span> XYZ Bar</span><br>
+                                			<span><b>Comment on place:</b></span><span> <i>I really very recommendation </i></span><br>
+                                			<span><b>Comment on user:</b></span><span> <i>The user was very sweet while talking and helpful.</i> </span><br>
+                                			<button type="button" class="btn btn-default">
+											  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Helpful
+											</button>
+											<button type="button" class="btn btn-default">
+											  <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> Not Helpful
+											</button>
+                                		</div>
+                                		
+                                	</div>
+                                </div>
                             </div>
                             </div>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                            	<img style="width: 20px;height: 20px;" src="https://cdn0.iconfinder.com/data/icons/customicondesignoffice5/256/tests.png"> Write Review
+							</button>
+							
+							<!-- Modal -->
+							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							  <div class="modal-dialog">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							        <h4 class="modal-title" id="myModalLabel">Write a review</h4>
+							      </div>
+							      <div class="modal-body">
+							      	<form class="form-horizontal">
+									  <div class="form-group">
+									    <label for="Name" class="col-sm-2 control-label">Full Name</label>
+									    <div class="col-sm-10">
+									      <input type="text" class="form-control" id="Name" placeholder="Full Name">
+									    </div>
+									  </div>
+									  <div class="form-group">
+									    <label for="Suggested-Place" class="col-sm-2 control-label">Suggested Place</label>
+									    <div class="col-sm-10">
+									      <input type="text" class="form-control" id="Suggested-Place" placeholder="Suggestion">
+									    </div>
+									  </div>
+									  <div class="form-group">
+									    <label for="Comment-on-place" class="col-sm-2 control-label">Comment on place</label>
+									    <div class="col-sm-10">
+									      <input type="text" class="form-control" id="Comment-on-place" placeholder="Comments...">
+									    </div>
+									  </div>
+									  <div class="form-group">
+									    <label for="Comment-on-user" class="col-sm-2 control-label">Comment on user</label>
+									    <div class="col-sm-10">
+									      <input type="text" class="form-control" id="Comment-on-user" placeholder="Comments...">
+									    </div>
+									  </div>
+									</form>
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        <button type="button" class="btn btn-primary">Save changes</button>
+							      </div>
+							    </div>
+							  </div>
+							</div>
                       
-                    </div>
-                    
-                    <div class="col-xs-6">
-                        	<div class="panel panel-green">
-                            <div class="panel-heading">
-                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Message Call Statistics</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="chart4"></div>
-                            </div>
-                            </div>
-                        
                     </div>
                  
                     

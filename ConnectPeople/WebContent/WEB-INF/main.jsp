@@ -691,9 +691,11 @@ $(window).bind('beforeunload', function (e) {
 					</div>
 
 					<!-- single member -->
+
+					<div>
 					<figure class="team-member col-md-2 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
-						<div class="member-thumb">
-							<img src="img/team/member-1.png" alt="Team Member" class="img-responsive">
+						<div class="member-thumb" style="width:100%;">
+							<img src="img/team/member-1.png" alt="Team Member" class="img-responsive" style="height:160px;">
 							<figcaption class="overlay">
 								<h5>Prashant Prakash</h5>
 								<p>Web Devloper</p>
@@ -711,8 +713,8 @@ $(window).bind('beforeunload', function (e) {
 					
 					<!-- single member -->
 					<figure class="team-member col-md-2 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
-						<div class="member-thumb">
-							<img src="img/team/member-2.png" alt="Team Member" class="img-responsive" style="width:100%;">
+						<div class="member-thumb"  style="width:100%;">
+							<img src="img/team/member-2.png" alt="Team Member" class="img-responsive" style="height:160px;">
 							<figcaption class="overlay">
 								<h5>George Koshy </h5>
 								<p>Web Developer</p>
@@ -730,8 +732,8 @@ $(window).bind('beforeunload', function (e) {
 					
 					<!-- single member -->
 					<figure class="team-member col-md-2 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="600ms">
-						<div class="member-thumb">
-							<img src="img/team/member-3.png" alt="Team Member" class="img-responsive" style="width:100%;">
+						<div class="member-thumb"  style="width:100%;">
+							<img src="img/team/member-3.png" alt="Team Member" class="img-responsive" style="height:160px;">
 							<figcaption class="overlay">
 								<h5>Ron Thomas  </h5>
 								<p>Web Developer</p>
@@ -749,8 +751,8 @@ $(window).bind('beforeunload', function (e) {
 					
 					<!-- single member -->
 					<figure class="team-member col-md-2 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
-						<div class="member-thumb">
-							<img src="img/team/member-4.png" alt="Team Member" class="img-responsive" style="width:100%;">
+						<div class="member-thumb"  style="width:100%;">
+							<img src="img/team/member-4.png" alt="Team Member" class="img-responsive" style="height:160px;">
 							<figcaption class="overlay">
 								<h5>Tien Xuan Tran</h5>
 								<p>Web Developer</p>
@@ -768,8 +770,8 @@ $(window).bind('beforeunload', function (e) {
 					
 					<!-- single member -->
 					<figure class="team-member col-md-2 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
-						<div class="member-thumb">
-							<img src="img/team/member-5.png" alt="Team Member" class="img-responsive">
+						<div class="member-thumb"  style="width:100%;">
+							<img src="img/team/member-5.png" alt="Team Member" class="img-responsive" style="height:160px;">
 							<figcaption class="overlay">
 								<h5>Sunish Sheth</h5>
 								<p>Web Developer</p>
@@ -780,11 +782,11 @@ $(window).bind('beforeunload', function (e) {
 								</ul>
 							</figcaption>
 						</div>
-						<h4>Tien</h4>
+						<h4>Sunish</h4>
 						<span>Hacker</span>
 					</figure>
 					<!-- end single member -->
-					
+					</div>
 				</div>
 			</div>
 		</section>
@@ -1527,7 +1529,7 @@ function ageCheck(){
                                     <input id="passwd" class="form-control" type="password" style="width:200px"
                                            value=""/>
                                 </div>
-                                <div clas="form-group">
+                                <div class="form-group">
                                     <input id="loginBtn" class="btn btn-primary" type="button" value="Log in"
                                            onclick="login();return false;"/>
                                 </div>
