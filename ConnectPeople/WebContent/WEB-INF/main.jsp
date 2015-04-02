@@ -476,7 +476,7 @@ $(window).bind('beforeunload', function (e) {
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <ul id="nav" class="nav navbar-nav">
                         <li class="current"><a href="#body">Home</a></li>
-                        <li><a href="#features">What We Do</a></li>                                                                       
+                        <li><a href="#features">Who we connect</a></li>                                                                       
                         <li><a href="#team">Team</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li id="signin"><a data-toggle="modal" data-target="#login-modal" href="">SignIn</a></li>
@@ -500,12 +500,12 @@ $(window).bind('beforeunload', function (e) {
 		<section id="slider">
 			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 			
-				<!-- Indicators bullet -->
-				<ol class="carousel-indicators">
-					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-				</ol>
-				<!-- End Indicators bullet -->				
+<!-- 				Indicators bullet -->
+<!-- 				<ol class="carousel-indicators"> -->
+<!-- 					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li> -->
+<!-- 					<li data-target="#carousel-example-generic" data-slide-to="1"></li> -->
+<!-- 				</ol> -->
+<!-- 				End Indicators bullet				 -->
 				
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox">
@@ -513,24 +513,24 @@ $(window).bind('beforeunload', function (e) {
 					<!-- single slide -->
 					<div class="item active" style="background-image: url(img/banner.jpg);">
 						<div class="carousel-caption" style="top:30%;">
-							<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Let's<span> Talk</span>!</h2>
-							<h3 data-wow-duration="2000ms" class="wow slideInLeft animated"><span class="color"> <input type="text" 
+							<h3 data-wow-duration="500ms" data-wow-delay="500ms" class="wow bounceInDown animated">Get an expert opinion on a spot you are interested in!</h3>
+							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color"> <input type="text" 
 							class="form-control" id="placeTextField" style="margin-left:20%;margin-top:1%;height:40px;width:60%;"
-							placeholder="Hola, What are you looking for?"
-                   name="place"></span> at <input type="text" 
+							placeholder="So...Where do you feel like going? A restaurant? A club?"
+                   name="place"></span> and this would be in... <input type="text" 
 							class="form-control" id="placeTextField1" style="margin-left:30%;margin-top:1%;height:40px;width:40%;"
-							placeholder="What location?"
+							placeholder="What city?"
                    name="place">
-                   	<a href="#" id="getpeople" class="btn btn-success modal-login-btn" style="width:200px;">Find People</a>
+                   	<a href="#" id="getpeople" class="btn btn-success modal-login-btn" style="width:200px;">Find a domain ninja</a>
                    </h3>
-							<p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of Unknown People</p>
+<!-- 						 <p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of Unknown People</p> -->
 							
-							<ul class="social-links text-center">
-								<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								<li><a href=""><i class="fa fa-dribbble fa-lg"></i></a></li>
-							</ul>
+<!-- 							<ul class="social-links text-center"> -->
+<!-- 								<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li> -->
+<!-- 								<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li> -->
+<!-- 								<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li> -->
+<!-- 								<li><a href=""><i class="fa fa-dribbble fa-lg"></i></a></li> -->
+<!-- 							</ul> -->
 						</div>
 					</div>
 					<!-- end single slide -->
@@ -579,7 +579,7 @@ $(window).bind('beforeunload', function (e) {
 					<div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms">
 						<div class="service-item">
 							<div class="service-icon">
-								<i class="fa fa-github fa-2x"></i>
+								<i class="fa fa-user fa-2x"></i>
 							</div>
 							
 							<div class="service-desc">
@@ -595,7 +595,7 @@ $(window).bind('beforeunload', function (e) {
 					<div class="col-md-4 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="500ms">
 						<div class="service-item">
 							<div class="service-icon">
-								<i class="fa fa-pencil fa-2x"></i>
+								<i class="fa fa-mortar-board fa-2x"></i>
 							</div>
 							
 							<div class="service-desc">
@@ -610,7 +610,7 @@ $(window).bind('beforeunload', function (e) {
 					<div class="col-md-4 wow fadeInRight" data-wow-duration="500ms"  data-wow-delay="900ms">
 						<div class="service-item">
 							<div class="service-icon">
-								<i class="fa fa-bullhorn fa-2x"></i>
+								<i class="fa fa-cutlery fa-2x"></i>
 							</div>
 							
 							<div class="service-desc">
@@ -639,12 +639,12 @@ $(window).bind('beforeunload', function (e) {
 				<div class="row">
 				
 					<div class="sec-title text-center">
-						<h2>Here We are</h2>
+						<h2>Here are your domain ninjas!</h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 					</div>
 					
 					<div class="sec-sub-title text-center">
-						<p>Hi, We share same interest as you !! Feel free to disturb us.   </p>
+						<p>Click on them to view their profiles and connect! </p>
 					</div>
 					
 					<!-- <div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
@@ -661,8 +661,6 @@ $(window).bind('beforeunload', function (e) {
 			</div>
 
             <div class="project-wrapper" id="MixItUp76F363">
-
-               
 
             </div>
 		
@@ -699,11 +697,11 @@ $(window).bind('beforeunload', function (e) {
 							<figcaption class="overlay">
 								<h5>Prashant Prakash</h5>
 								<p>Web Devloper</p>
-								<ul class="social-links text-center">
-									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								</ul>
+<!-- 								<ul class="social-links text-center"> -->
+<!-- 									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li> -->
+<!-- 									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li> -->
+<!-- 									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li> -->
+<!-- 								</ul> -->
 							</figcaption>
 						</div>
 						<h4>Peeps</h4>
@@ -718,11 +716,11 @@ $(window).bind('beforeunload', function (e) {
 							<figcaption class="overlay">
 								<h5>George Koshy </h5>
 								<p>Web Developer</p>
-								<ul class="social-links text-center">
-									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								</ul>
+<!-- 								<ul class="social-links text-center"> -->
+<!-- 									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li> -->
+<!-- 									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li> -->
+<!-- 									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li> -->
+<!-- 								</ul> -->
 							</figcaption>
 						</div>
 						<h4>George</h4>
@@ -737,11 +735,11 @@ $(window).bind('beforeunload', function (e) {
 							<figcaption class="overlay">
 								<h5>Ron Thomas  </h5>
 								<p>Web Developer</p>
-								<ul class="social-links text-center">
-									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								</ul>
+<!-- 								<ul class="social-links text-center"> -->
+<!-- 									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li> -->
+<!-- 									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li> -->
+<!-- 									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li> -->
+<!-- 								</ul> -->
 							</figcaption>
 						</div>
 						<h4>Ron</h4>
@@ -756,11 +754,11 @@ $(window).bind('beforeunload', function (e) {
 							<figcaption class="overlay">
 								<h5>Tien Xuan Tran</h5>
 								<p>Web Developer</p>
-								<ul class="social-links text-center">
-									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								</ul>
+<!-- 								<ul class="social-links text-center"> -->
+<!-- 									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li> -->
+<!-- 									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li> -->
+<!-- 									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li> -->
+<!-- 								</ul> -->
 							</figcaption>
 						</div>
 						<h4>Tien</h4>
@@ -775,11 +773,11 @@ $(window).bind('beforeunload', function (e) {
 							<figcaption class="overlay">
 								<h5>Sunish Sheth</h5>
 								<p>Web Developer</p>
-								<ul class="social-links text-center">
-									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
-									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
-								</ul>
+<!-- 								<ul class="social-links text-center"> -->
+<!-- 									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li> -->
+<!-- 									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li> -->
+<!-- 									<li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li> -->
+<!-- 								</ul> -->
 							</figcaption>
 						</div>
 						<h4>Sunish</h4>
@@ -805,7 +803,7 @@ $(window).bind('beforeunload', function (e) {
 					<div class="row number-counters">
 						
 						<div class="sec-title text-center mb50 wow rubberBand animated" data-wow-duration="1000ms">
-							<h2>Some Fun Facts</h2>
+							<h2>How popular we are!</h2>
 							<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 						</div>
 						
@@ -863,12 +861,12 @@ $(window).bind('beforeunload', function (e) {
 				<div class="row mb50">
 				
 					<div class="sec-title text-center mb50 wow fadeInDown animated" data-wow-duration="500ms">
-						<h2>Reach Us</h2>
+						<h2>Contact</h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 					</div>
 					
 					<div class="sec-sub-title text-center wow rubberBand animated" data-wow-duration="1000ms">
-						<p>Feel free to drop in a mail to us!</p>
+						<p>Send us a message and we will get back to you asap!</p>
 					</div>
 					
 					<!-- contact address -->
@@ -906,14 +904,14 @@ $(window).bind('beforeunload', function (e) {
 					<!-- end contact form -->
 					
 					<!-- footer social links -->
-					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 wow fadeInRight animated" data-wow-duration="500ms" data-wow-delay="600ms">
-						<ul class="footer-social">
-							<li><a href="https://www.behance.net/Themefisher"><i class="fa fa-behance fa-2x"></i></a></li>
-							<li><a href="https://www.twitter.com/Themefisher"><i class="fa fa-twitter fa-2x"></i></a></li>
-							<li><a href="https://dribbble.com/themefisher"><i class="fa fa-dribbble fa-2x"></i></a></li>
-							<li><a href="https://www.facebook.com/Themefisher"><i class="fa fa-facebook fa-2x"></i></a></li>
-						</ul>
-					</div>
+<!-- 					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 wow fadeInRight animated" data-wow-duration="500ms" data-wow-delay="600ms"> -->
+<!-- 						<ul class="footer-social"> -->
+<!-- 							<li><a href="https://www.behance.net/Themefisher"><i class="fa fa-behance fa-2x"></i></a></li> -->
+<!-- 							<li><a href="https://www.twitter.com/Themefisher"><i class="fa fa-twitter fa-2x"></i></a></li> -->
+<!-- 							<li><a href="https://dribbble.com/themefisher"><i class="fa fa-dribbble fa-2x"></i></a></li> -->
+<!-- 							<li><a href="https://www.facebook.com/Themefisher"><i class="fa fa-facebook fa-2x"></i></a></li> -->
+<!-- 						</ul> -->
+<!-- 					</div> -->
 					<!-- end footer social links -->
 					
 				</div>
@@ -937,20 +935,20 @@ $(window).bind('beforeunload', function (e) {
 					<div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms">
 						<div class="footer-single">
 							<h1>MrAdvisor</h1>
-							<p>We provide you best and fastest advising and help you to make your life better.</p>
+							<p>Connecting you to the right opinions from the experts to make your exerience more enjoyable.</p>
 						</div>
 					</div>
 				
-					<div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
-						<div class="footer-single">
-							<h6>Subscribe </h6>
-							<form action="#" class="subscribe">
-								<input type="text" name="subscribe" id="subscribe">
-								<input type="submit" value="&#8594;" id="subs">
-							</form>
-							<p>Made With <3 at UTD. </p>
-						</div>
-					</div>
+<!-- 					<div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms"> -->
+<!-- 						<div class="footer-single"> -->
+<!-- 							<h6>Subscribe </h6> -->
+<!-- 							<form action="#" class="subscribe"> -->
+<!-- 								<input type="text" name="subscribe" id="subscribe"> -->
+<!-- 								<input type="submit" value="&#8594;" id="subs"> -->
+<!-- 							</form> -->
+<!-- 							<p>Made With <3 at UTD. </p> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 				
 					<div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="600ms">
 						<div class="footer-single">
@@ -1053,7 +1051,7 @@ $(window).bind('beforeunload', function (e) {
         Login Credentials
         ==================================== -->
         
-						<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
+						<div class="text-center mb50 wow fadeIn animated" data-wow-duration="500ms">
 							<h2>Login Credentials</h2>
 						</div>
 						
@@ -1076,7 +1074,7 @@ $(window).bind('beforeunload', function (e) {
         Tell us about yourself
         ==================================== -->
         
-		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
+		            	<div class=" text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
 							<h2>Tell us about yourself!</h2>
 						</div>
 						
@@ -1110,7 +1108,7 @@ $(window).bind('beforeunload', function (e) {
         Alright! So what kind of expert are you?
         ==================================== -->
         
-		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
+		            	<div class="text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
 							<h2>Alright! So, of what are you an expert of?</h2>
 							<h4>(Restaurants,Libraries,Pubs....stuff like that!)</h4>
 						</div>
@@ -1125,8 +1123,8 @@ $(window).bind('beforeunload', function (e) {
        Awesome about urself
         ==================================== -->
         
-		            	<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
-							<h2>Tell us something awesome about yourself!</h2>
+		            	<div class="text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
+							<h2 style="color: green;">Tell us something awesome about yourself!</h2>
 						</div>
 						
 						<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
@@ -1136,8 +1134,8 @@ $(window).bind('beforeunload', function (e) {
 		            			  <!--
       Upload pHoto
         ==================================== -->
-						<div class="sec-title text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
-							<h2>Upload a duck selfie here.(Or a normal snap would do fine too!)</h2>
+						<div class="text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
+							<h2>What do you look like?</h2>
 						</div>
 		
 		            	<a id="registerBtn" class="btn btn-success text-center" onclick="validateNRegister()">Register</a>
