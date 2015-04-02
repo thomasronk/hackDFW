@@ -24,7 +24,7 @@ public class DAO {
 
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelfriend?" + "user=root&password=root");
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("select distinct e_loc from experttable");
+			ResultSet rs = stmt.executeQuery("select distinct loc_name from location");
 
 			while (rs.next()) {
 				locations.add(rs.getString(1));
@@ -84,7 +84,7 @@ public class DAO {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelfriend?" + "user=root&password=root");
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt
-					.executeQuery("select distinct e_name, e_loc, phone_no ,rating, is_audio,is_video, is_phone "
+					.executeQuery("select distinct e_name, e_loc, phone_no , is_audio,is_video, is_phone "
 							+ "from experttable exp , expert_tagtable etg , tagTable tg "
 							+ "where exp.e_id = etg.e_id and tg.tagID = etg.tagID " + "and exp.e_loc ='" + location
 							+ "' and tg.tagName='" + tag + "'");
@@ -236,6 +236,53 @@ public class DAO {
 		return retStatus;
 	}
 
+	public int addNewExpert(String uname,String pwd,String fname,String lname,String dob,String ph_num,String loc,String about) {
+		Connection conn = null;
+		int retStatus = 0;
+		PreparedStatement preparedStatement = null;
+		
+		try{
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelfriend?" + "user=root&password=root");
+			System.out.println("Almos there");
+			
+			
+			//String insertTableSQL = "INSERT INTO experttable" + "(e_username, e_password, e_fname, e_lname, e_loc, e_phnum, e_aboutme, e_dob) VALUES " + "('"+uname+"','"+pwd+"','"+fname+"','"+lname+"','"+loc+"','"+ph_num+"','"+about+"','"+dob+"')";
+			String insertTableSQL = "INSERT INTO experttable (e_username, e_password, e_fname, e_lname, e_loc, e_phnum, e_aboutme, e_dob) VALUES (?,?,?,?,?,?,?,?)";
+			preparedStatement = conn.prepareStatement(insertTableSQL);
+			preparedStatement.setString(1, uname);
+			preparedStatement.setString(2, pwd);
+			preparedStatement.setString(3, fname);
+			preparedStatement.setString(4, lname);
+			preparedStatement.setString(5, loc);
+			preparedStatement.setString(6, ph_num);
+			preparedStatement.setString(7, about);
+			preparedStatement.setString(8, dob);
+			//System.out.println("SQL String is "+ insertTableSQL);
+			//FileInputStream fin=new FileInputStream(profpic); 
+			//preparedStatement.setBinaryStream(9,fin,fin.available()); 
+			
+			retStatus = preparedStatement.executeUpdate();
+			conn.close();
+			
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+		finally {
+
+		}
+		
+		return 0;
+		
+	}
+	
 	public List<GraphVO> getGraphsInfo(String uName) {
 		List<GraphVO> gpos = new ArrayList<GraphVO>();
 		gpos.add(getGraphDetails(uName,"Audio"));

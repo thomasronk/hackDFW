@@ -24,6 +24,7 @@ public class Registration extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//super.doGet(req, resp);
+		DAO dao = new DAO();
 		String uname = req.getParameter("uname");
 		String pwd = req.getParameter("pwd");
 		String fname = req.getParameter("fname");
@@ -31,7 +32,11 @@ public class Registration extends HttpServlet{
 		String dob = req.getParameter("dob");
 		String ph_num = req.getParameter("phno");
 		String loc = req.getParameter("location");
+		String about = req.getParameter("about");
+		//String prof_pic = req.getParameter("pic");
 		
-		System.out.println(uname + pwd+fname+lname+dob+ph_num+loc);
+		System.out.println(uname + pwd+fname+lname+dob+ph_num+loc+about);
+		
+		dao.addNewExpert(uname,pwd,fname,lname,dob,ph_num,loc,about);
 	}
 }

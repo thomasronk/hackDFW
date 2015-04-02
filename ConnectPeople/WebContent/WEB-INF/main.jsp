@@ -1164,6 +1164,8 @@ $(window).bind('beforeunload', function (e) {
 <script type="text/javascript">
 function validateNRegister() {
 	resetColor();
+	var e = document.getElementById("useradd-location");
+	var location = e.options[e.selectedIndex].text;
 	if(!nullCheck())
 		{
 			console.log("Null Check hasnt passedd");
@@ -1189,7 +1191,7 @@ function validateNRegister() {
 		document.getElementById("error-msg").style.visibility = "hidden";
 	}
 	
-		$.getJSON( "register?uname="+$("#useradd-name").val()+"&pwd="+$("#useradd-pass").val()+"&fname="+$("#useradd-fname").val()+"&lname="+$("#useradd-lname").val()+"&dob="+$("#useradd-dob").val()+"&phno="+$("#useradd-phone").val()+"&location="+$("#useradd-location").val(), function( data ) {
+		$.getJSON( "register?uname="+$("#useradd-name").val()+"&pwd="+$("#useradd-pass").val()+"&fname="+$("#useradd-fname").val()+"&lname="+$("#useradd-lname").val()+"&dob="+$("#useradd-dob").val()+"&phno="+$("#useradd-phone").val()+"&location="+location+"&about="+$("#useradd-aboutme").val(), function( data ) {
 			console.log(data);
 				//for(var i=0;i<data.length;i++){
             	//var divToAppend = "<figure class=\"mix work-item photography\" style=\"display: inline-block;\"><img alt=\"\" src=\"img/works/item-8.jpg\"><figcaption class=\"overlay\"><a data-toggle=\"modal\" data-target=\"#expertModal\" title=\"Connect to ME\" rel=\"works\"><i class=\"fa fa-eye fa-lg\"></i></a><h4>"+data[i].name+"</h4><p>"+data[i].location+"</p></figcaption></figure>";
