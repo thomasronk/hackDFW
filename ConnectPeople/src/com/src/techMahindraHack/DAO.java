@@ -283,6 +283,41 @@ public class DAO {
 		
 	}
 	
+	public boolean checkUname(String uName) {
+		Connection conn = null;
+		int numRows;
+		try {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelfriend?" + "user=root&password=root");
+			Statement stmt = conn.createStatement();
+			System.out.println("select * from experttable where e_username= '"+uName+"';");
+			ResultSet rs = stmt.executeQuery("select * from experttable where e_username= '"+uName+"';");
+			rs.last();
+			numRows = rs.getRow();
+			System.out.println("The number of records are "+rs.getRow());
+			
+			if (numRows>0)
+			{
+				return true;
+			}
+			
+			conn.close();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+
+		}
+		return false;
+	}
+	
+	
 	public List<GraphVO> getGraphsInfo(String uName) {
 		List<GraphVO> gpos = new ArrayList<GraphVO>();
 		gpos.add(getGraphDetails(uName,"Audio"));

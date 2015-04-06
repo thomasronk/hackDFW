@@ -918,7 +918,7 @@ $(window).bind('beforeunload', function (e) {
 			</div>
 			
 			<!-- Google map -->
-			<div id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms"></div>
+<!-- 			<div id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms"></div> --> -->
 			<!-- End Google map -->
 			
 		</section>
@@ -991,7 +991,7 @@ $(window).bind('beforeunload', function (e) {
       			<br/>
       			<div class="clearfix"></div>
       			<div id='social-icons-conatainer'>
-	        		<div class='modal-body-left'>
+<!-- 	        		<div class='modal-body-left'> -->
 	        			<div class="form-group">
 		              		<input type="text" id="username" placeholder="Enter your name" value="" class="form-control login-field">
 		              		<i class="fa fa-user login-field-icon"></i>
@@ -1004,17 +1004,17 @@ $(window).bind('beforeunload', function (e) {
 		
 		            	<a href="#" id="signins" class="btn btn-success modal-login-btn">Login</a>
 		            	<a href="#" class="login-link text-center">Lost your password?</a>
-	        		</div>
+<!-- 	        		</div> -->
 	        	
-	        		<div class='modal-body-right'>
-	        			<div class="modal-social-icons">
-	        				<a href='#' class="btn btn-default facebook"> <i class="fa fa-facebook modal-icons"></i> Sign In with Facebook </a>
-	        				<a href='#' class="btn btn-default twitter"> <i class="fa fa-twitter modal-icons"></i> Sign In with Twitter </a>
-	        				<a href='#' class="btn btn-default google"> <i class="fa fa-google-plus modal-icons"></i> Sign In with Google </a>
-	        				<a href='#' class="btn btn-default linkedin"> <i class="fa fa-linkedin modal-icons"></i> Sign In with Linkedin </a>
-	        			</div> 
-	        		</div>	
-	        		<div id='center-line'> OR </div>
+<!-- 	        		<div class='modal-body-right'> -->
+<!-- 	        			<div class="modal-social-icons"> -->
+<!-- 	        				<a href='#' class="btn btn-default facebook"> <i class="fa fa-facebook modal-icons"></i> Sign In with Facebook </a> -->
+<!-- 	        				<a href='#' class="btn btn-default twitter"> <i class="fa fa-twitter modal-icons"></i> Sign In with Twitter </a> -->
+<!-- 	        				<a href='#' class="btn btn-default google"> <i class="fa fa-google-plus modal-icons"></i> Sign In with Google </a> -->
+<!-- 	        				<a href='#' class="btn btn-default linkedin"> <i class="fa fa-linkedin modal-icons"></i> Sign In with Linkedin </a> -->
+<!-- 	        			</div>  -->
+<!-- 	        		</div>	 -->
+<!-- 	        		<div id='center-line'> OR </div> -->
 	        	</div>																												
         		<div class="clearfix"></div>
         		
@@ -1056,9 +1056,11 @@ $(window).bind('beforeunload', function (e) {
 						</div>
 						
 	        			<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
-		              		<input type="text" id="useradd-name" placeholder="Enter your user id" value="" class="form-control login-field">
+		              		<input type="text" id="useradd-name" placeholder="Enter your user id" value="" class="form-control login-field" onkeyup="loadUnameCheck()">
+		              		<span id="err"></span>
 		              		<i class="fa fa-user-plus login-field-icon"></i>
 		            	</div>
+		            	
 		
 		            	<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
 		            	  	<input type="password" id="useradd-pass" placeholder="Password" value="" class="form-control login-field">
@@ -1138,6 +1140,10 @@ $(window).bind('beforeunload', function (e) {
 							<h2>What do you look like?</h2>
 						</div>
 		
+<!-- 					<input type="file" name="pic" accept="image/*"> -->
+<!-- 					<button type="button " onclick="chooseFile()" id="fileInput"> -->
+  			
+		
 		            	<a id="registerBtn" class="btn btn-success text-center" onclick="validateNRegister()">Register</a>
 
 						<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
@@ -1156,8 +1162,35 @@ $(window).bind('beforeunload', function (e) {
       		</div>
     	</div>
   	</div>
-</div>
+</div> 
 
+<script type="text/javascript">
+function loadUnameCheck()
+{
+	console.log("keyUp");
+	
+	$.getJSON( "unameCheck?uname="+$("#useradd-name").val(), function( data ) {
+			console.log("Scuess"+data);
+			if(data=="Username Exists"){
+				
+			document.getElementById("err").textContent=data;
+			document.getElementById("err").style.color="red";
+			}
+			else if(data=="Username available")
+			{
+				document.getElementById("err").textContent=data;
+				document.getElementById("err").style.color="green";
+			}
+	});
+};
+</script>
+
+<script type="text/javascript">
+function chooseFile(){
+	$("#fileInput").click();
+}
+
+</script>
 
 <script type="text/javascript">
 function validateNRegister() {
@@ -1175,30 +1208,35 @@ function validateNRegister() {
 	else if(!pwdMatchCheck())
 		{
 			console.log("Password check hasnt passedd");
+			document.getElementById("error-msg").style.visibility = "visible";
 			document.getElementById("error-msg").style.color = "red";
 			$("#error-msg").text("The passwords that you've entered are different! ");
 		}
 	else if(!ageCheck())
 	{
 		console.log("Age check hasnt passedd");
+		document.getElementById("error-msg").style.visibility = "visible";
 		document.getElementById("error-msg").style.color = "red";
 		$("#error-msg").text("You arent 18 years yet! ");
+	}
+	else if(!unameCheck())
+	{
+		
+		console.log("Username check hasnt passedd");
+		document.getElementById("error-msg").style.visibility = "visible";
+		document.getElementById("error-msg").style.color = "red";
+		$("#error-msg").text("Please choose another username");
+		
 	}
 	else {
 		console.log("All checks passed");
 		document.getElementById("error-msg").style.visibility = "hidden";
-	}
-	
 		$.getJSON( "register?uname="+$("#useradd-name").val()+"&pwd="+$("#useradd-pass").val()+"&fname="+$("#useradd-fname").val()+"&lname="+$("#useradd-lname").val()+"&dob="+$("#useradd-dob").val()+"&phno="+$("#useradd-phone").val()+"&location="+location+"&about="+$("#useradd-aboutme").val(), function( data ) {
-			console.log(data);
-				//for(var i=0;i<data.length;i++){
-            	//var divToAppend = "<figure class=\"mix work-item photography\" style=\"display: inline-block;\"><img alt=\"\" src=\"img/works/item-8.jpg\"><figcaption class=\"overlay\"><a data-toggle=\"modal\" data-target=\"#expertModal\" title=\"Connect to ME\" rel=\"works\"><i class=\"fa fa-eye fa-lg\"></i></a><h4>"+data[i].name+"</h4><p>"+data[i].location+"</p></figcaption></figure>";
-                //jQuery("#MixItUp76F363").append(divToAppend);
-            //}
-				
-				//$( "#whoWe" ).trigger( "click" );
-				
+			console.log(data);				
 		});
+		resetFields();
+	}
+		
 		
 };
 	
@@ -1210,12 +1248,22 @@ function resetColor(){
 	document.getElementById("useradd-fname").style.background="transparent";
 	document.getElementById("useradd-lname").style.background="transparent";
 	document.getElementById("useradd-aboutme").style.background="transparent";
+	document.getElementById("useradd-location").style.background="transparent";
 };	
 
 function resetFields(){
 	console.log("Resetting all fields");
-	var select = document.getElementById("useradd-location");
-	select.options.length = 0;
+	$("#useradd-name").val('');
+	$("#useradd-pass").val('');
+	$("#useradd-pass-confirm").val('');
+	$("#useradd-fname").val('');
+	$("#useradd-lname").val('');
+	$("#useradd-about me").val('');
+	$("#useradd-location").val('');
+	$("#useradd-dob").val('');
+	$("#useradd-aboutme").val('');
+	$("#useradd-phone").val('');
+	document.getElementById("err").textContent='';
 
 }
 
@@ -1309,6 +1357,18 @@ function ageCheck(){
 	}
 	
 };
+
+function unameCheck(){
+	console.log("Checking if username exists");
+	var username = document.getElementById("err").textContent;
+	console.log(username);
+	if(username == "Username Exists"){
+		return false;
+	}
+	else{
+		return true;
+	}
+};
 </script>
 
 		<!-- Essential jQuery Plugins
@@ -1383,7 +1443,7 @@ function ageCheck(){
 			
 			$.getJSON( "tags", function( data ) {
 		    	  console.log(data);
-		    	  existingTags = data;
+		    	  availableTags = data;
 				  
 				   $( "#placeTextField" ).autocomplete({
 		              source: availableTags

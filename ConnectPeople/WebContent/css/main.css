@@ -572,6 +572,10 @@ Contact Us
     color: #062033;
     margin-top: 100px;
 }
+.status {  
+ font-family: verdana;  
+ font-size: 12px;  
+} 
 #back-top {
     bottom: 20px;
     position: fixed;
