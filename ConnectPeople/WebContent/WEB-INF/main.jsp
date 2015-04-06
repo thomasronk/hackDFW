@@ -513,11 +513,11 @@ $(window).bind('beforeunload', function (e) {
 					<!-- single slide -->
 					<div class="item active" style="background-image: url(img/banner.jpg);">
 						<div class="carousel-caption" style="top:30%;">
-							<h3 data-wow-duration="500ms" data-wow-delay="500ms" class="wow bounceInDown animated">Get an expert opinion on a spot you are interested in!</h3>
+							<h3 data-wow-duration="500ms" data-wow-delay="500ms" class="wow bounceInDown animated">Get an expert opinion about...</h3>
 							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color"> <input type="text" 
 							class="form-control" id="placeTextField" style="margin-left:20%;margin-top:1%;height:40px;width:60%;"
 							placeholder="So...Where do you feel like going? A restaurant? A club?"
-                   name="place"></span> and this would be in... <input type="text" 
+                   name="place"></span> in... <input type="text" 
 							class="form-control" id="placeTextField1" style="margin-left:30%;margin-top:1%;height:40px;width:40%;"
 							placeholder="What city?"
                    name="place">
@@ -1019,7 +1019,7 @@ $(window).bind('beforeunload', function (e) {
         		<div class="clearfix"></div>
         		
         		<div class="form-group modal-register-btn">
-						<a class="btn btn-success" href="#register-modal" data-toggle="modal" data-dismiss="modal">New User? Sign Up!</a>
+						<a class="btn btn-success" href="#register-modal" data-toggle="modal" data-dismiss="modal">New user sign up!</a>
         		</div>
       		</div>
       		<div class="clearfix"></div>

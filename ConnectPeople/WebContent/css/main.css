@@ -576,6 +576,12 @@ Contact Us
  font-family: verdana;  
  font-size: 12px;  
 } 
+
+.ui-autocomplete {
+    background: #ffffff;
+    border-radius: 0px;
+    width: 50px;
+}
 #back-top {
     bottom: 20px;
     position: fixed;
