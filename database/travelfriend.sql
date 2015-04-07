@@ -25,11 +25,11 @@ DROP TABLE IF EXISTS `callmetric`;
 CREATE TABLE `callmetric` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uname` varchar(100) NOT NULL,
-  `month` varchar(45) NOT NULL,
+  `date` date NOT NULL,
   `commType` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=205 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `callmetric` (
 
 LOCK TABLES `callmetric` WRITE;
 /*!40000 ALTER TABLE `callmetric` DISABLE KEYS */;
+INSERT INTO `callmetric` VALUES (1,'abc@abc.com','2015-04-06','Audio'),(2,'abc@abc.com','2015-04-06','Video'),(3,'abc@abc.com','2015-04-06','Message'),(4,'abc@abc.com','2015-04-06','Phone'),(5,'abc@abc.com','2015-03-06','Message');
 /*!40000 ALTER TABLE `callmetric` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,10 +76,10 @@ CREATE TABLE `experttable` (
   `e_id` int(11) NOT NULL AUTO_INCREMENT,
   `e_name` varchar(100) NOT NULL,
   `e_loc` varchar(100) NOT NULL,
-  `is_online` bit(1) NOT NULL,
-  `is_audio` bit(1) NOT NULL,
-  `is_video` bit(1) NOT NULL,
-  `is_message` bit(1) NOT NULL,
+  `is_online` int(1) NOT NULL,
+  `is_audio` int(1) NOT NULL,
+  `is_video` int(1) NOT NULL,
+  `is_message` int(1) NOT NULL,
   `e_password` varchar(45) NOT NULL,
   `phone_no` varchar(45) DEFAULT NULL,
   `is_phone` bit(1) NOT NULL,
@@ -86,7 +87,7 @@ CREATE TABLE `experttable` (
   `aboutme` varchar(500) NOT NULL,
   PRIMARY KEY (`e_id`),
   UNIQUE KEY `e_id_UNIQUE` (`e_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,6 +96,7 @@ CREATE TABLE `experttable` (
 
 LOCK TABLES `experttable` WRITE;
 /*!40000 ALTER TABLE `experttable` DISABLE KEYS */;
+INSERT INTO `experttable` VALUES (1,'abc@abc.com','Dallas',1,1,1,1,'abc','12334344','','asdsad','sadnasdlkasd');
 /*!40000 ALTER TABLE `experttable` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,7 +161,7 @@ CREATE TABLE `rating` (
   `uid` int(11) NOT NULL,
   `rating` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,12 +181,15 @@ DROP TABLE IF EXISTS `reviews`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `reviews` (
-  `id` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `comments` varchar(500) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uname` varchar(30) NOT NULL,
+  `commentplace` varchar(500) NOT NULL,
   `commentdate` date NOT NULL,
+  `commentuser` varchar(500) NOT NULL,
+  `tag` varchar(45) NOT NULL,
+  `who` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,6 +198,7 @@ CREATE TABLE `reviews` (
 
 LOCK TABLES `reviews` WRITE;
 /*!40000 ALTER TABLE `reviews` DISABLE KEYS */;
+INSERT INTO `reviews` VALUES (1,'abc@abc.com','yeah ','2015-04-06','bah','Bars','xyz'),(2,'abc@abc.com','asdfdsfds','2015-04-06','dasf','Bars','asdsad'),(3,'abc@abc.com','sdfsdf','2015-04-06','sdfdsf','asfsdf','asdsad'),(4,'abc@abc.com','awesome','2015-04-06','awesome','Pubs','Prashant'),(5,'abc@abc.com','this was good','2015-04-06','Awesome','Bars','ron ');
 /*!40000 ALTER TABLE `reviews` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -230,4 +236,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-03-17  2:50:36
+-- Dump completed on 2015-04-07  1:09:41
