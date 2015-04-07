@@ -1050,7 +1050,9 @@ $(window).bind('beforeunload', function (e) {
         <!--
         Login Credentials
         ==================================== -->
-        
+        			<form action="register" method="post"
+                        enctype="multipart/form-data">
+        			
 						<div class="text-center mb50 wow fadeIn animated" data-wow-duration="500ms">
 							<h2>Login Credentials</h2>
 						</div>
@@ -1076,7 +1078,7 @@ $(window).bind('beforeunload', function (e) {
         Tell us about yourself
         ==================================== -->
         
-		            	<div class=" text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
+		            	<!--  <div class=" text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
 							<h2>Tell us about yourself!</h2>
 						</div>
 						
@@ -1110,7 +1112,7 @@ $(window).bind('beforeunload', function (e) {
         Alright! So what kind of expert are you?
         ==================================== -->
         
-		            	<div class="text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
+		<!--              	<div class="text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
 							<h2>Alright! So, of what are you an expert of?</h2>
 							<h4>(Restaurants,Libraries,Pubs....stuff like that!)</h4>
 						</div>
@@ -1125,7 +1127,7 @@ $(window).bind('beforeunload', function (e) {
        Awesome about urself
         ==================================== -->
         
-		            	<div class="text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
+		            	<!--  <div class="text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
 							<h2 style="color: green;">Tell us something awesome about yourself!</h2>
 						</div>
 						
@@ -1136,16 +1138,18 @@ $(window).bind('beforeunload', function (e) {
 		            			  <!--
       Upload pHoto
         ==================================== -->
-						<div class="text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
+						<!-- <div class="text-center mb50 wow fadeInDownBig animated" data-wow-duration="500ms">
 							<h2>What do you look like?</h2>
 						</div>
 		
 <!-- 					<input type="file" name="pic" accept="image/*"> -->
 <!-- 					<button type="button " onclick="chooseFile()" id="fileInput"> -->
   			
-		
-		            	<a id="registerBtn" class="btn btn-success text-center" onclick="validateNRegister()">Register</a>
-
+						<input type="file" name="file" size="50" />
+						<br />
+						<input type="submit" value="register" />
+		            	<!-- <a id="registerBtn" class="btn btn-success text-center">Register</a>-->
+						</form>
 						<div class="form-group wow slideInLeft animated" data-wow-duration="500ms">
 <!-- 	        				<h5 class="text-center" id="error-msg" style="visibility:hidden">Some Error</h5> -->
 	        				<div id="error-msg" class="alert alert-danger alert-error" style="visibility: hidden">
