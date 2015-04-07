@@ -452,6 +452,39 @@ $(window).bind('beforeunload', function (e) {
 	  <script type="text/javascript">
     $(document).ready(function() {
     	login();
+    	var uname="abc@abc.com";
+    	$.getJSON( "experts?choice=getcomments&uname="+uname, function( data ) {
+				console.log(data);
+				var divToAppend="";
+				for(var i=0;i<data.length;i++){
+            	//var divToAppend = "<figure class=\"mix work-item photography\" style=\"display: inline-block;\"><img alt=\"\" src=\"img/works/item-8.jpg\"><figcaption class=\"overlay\"><a data-toggle=\"modal\" data-target=\"#expertModal\" title=\"Connect to ME\" rel=\"works\"><i class=\"fa fa-eye fa-lg\"></i></a><h4>"+data[i].name+"</h4><p>"+data[i].location+"</p></figcaption></figure>";
+                //jQuery("#MixItUp76F363").append(divToAppend);
+					divToAppend+="<div class=\"row\" style = \"padding-top:10px\"><div class=\"col-xs-12\"><span><b>Name :</b></span><span>"+ data[i].who +"</span><br><span><b>Suggestion :</b></span><span>" +data[i].tag+"</span><br><span><b>Comment on place:</b></span><span> <i>"+data[i].commentPlace+" </i></span><br><span><b>Comment on user:</b></span><span> <i>"+data[i].commentUser+"</i> </span><br><button type=\"button\" class=\"btn btn-default\"><span class=\"glyphicon glyphicon-thumbs-up\" aria-hidden=\"true\"></span> Helpful</button><button type=\"button\" class=\"btn btn-default\"><span class=\"glyphicon glyphicon-thumbs-down\" aria-hidden=\"true\"></span> Not Helpful</button></div></div>";
+            	}
+				
+				$("#review").append(divToAppend);
+				
+		});
+    	
+    	
+    	$.getJSON( "experts?choice=getuserinformation&uname="+uname, function( data ) {
+			console.log(data);
+			$("#name-text").text(data.name);
+			$("#Phone-text").text(data.phone);
+			$("#Description-text").text(data.desc);
+			$("#Location-text").text(data.location);
+			
+    	});
+    	
+    	
+    	$("#savecomment").click(function(){ 
+    	    // adding comment to DB 
+    	    var uname="abc@abc.com"
+    	    $.post("experts?choice=addcomments&uname="+uname+"&name="+$("#Name").val()+"&tag="+$("#Suggested-Place").val()+"&onplace="+$("#Comment-on-place").val()+"&onuser="+$("#Comment-on-user").val() ,function(data){
+    	 		console.log("comments added sucessfully");
+    	    });
+    	  
+    	 });
     });
     
     
@@ -462,6 +495,10 @@ $(window).bind('beforeunload', function (e) {
 	$(document).ready(function() {
 		 $("#name-text").show();
 		 $("#name-text-insert").hide();
+		 $("#Phone-text").show();
+		 $("#Phone-text-insert").hide();
+		 $("#Location-text").show();
+		 $("#Location-text-insert").hide();
 		 $("#sex-text").show();
 		 $("#sex-text-insert").hide();
 		 $("#interest-text").show();
@@ -470,6 +507,9 @@ $(window).bind('beforeunload', function (e) {
 		 $("#Description-text-insert").hide();
 		 $("#edit").show();
 		 $("#save").hide();
+	     $("#inlineCheckBox1").attr("disabled", true);
+	  	 $("#inlineCheckBox2").attr("disabled", true);
+	  	 $("#inlineCheckBox3").attr("disabled", true);
 	    });
 	
 	$(function() {
@@ -478,6 +518,12 @@ $(window).bind('beforeunload', function (e) {
 		 		 $("#name-text").hide();
 				 $("#name-text-insert").show();
 		    	 $("#Full-Name").val($("#name-text").text());
+		    	 $("#Phone-text").hide();
+				 $("#Phone-text-insert").show();
+				 $("#Phone-Number").val($("#Phone-text").text());
+				 $("#Location-text").hide();
+				 $("#Location-text-insert").show();
+				 $("#Location").val($("#Location-text").text());
 				 $("#sex-text").hide();
 				 $("#sex-text-insert").show();
 				 if($("input[type='radio'][name=inlineRadioOptions]:checked" == " Male")){
@@ -493,6 +539,9 @@ $(window).bind('beforeunload', function (e) {
 				 $("#textareadesp").val($("#Description-text").text());
 	    	 	 $("#edit").hide();
 	    	  	 $("#save").show();
+	    	     $("#inlineCheckBox1").attr("disabled", false);
+	    	  	 $("#inlineCheckBox2").attr("disabled", false);
+	    	  	 $("#inlineCheckBox3").attr("disabled", false);
 	           }
 	      );
 	});
@@ -501,9 +550,29 @@ $(window).bind('beforeunload', function (e) {
 $(function() {
     $("#save").click( function()
          {
-		 $("#name-text").show();
+		 
+    	var phone=$("#Phone-Number").val();
+    	var location=$("#Location").val();
+    	var aboutme=$("#textareadesp").val();
+    	var isPhone=1;
+    	var isMessage=1;
+    	var isVideo=1;
+    	var isAudio=1;
+    	
+    	
+    	
+		$.post("experts?choice=updateinfo&phone="+phone+"&location="+location+"&aboutme="+aboutme+"&isphone="+isPhone+"&isAduio="+isAudio+"&isVideo="+isVideo+"&isMessage="+isMessage ,function(data){
+	 		console.log("comments added sucessfully");
+	    });
+    	 $("#name-text").show();
 		 $("#name-text-insert").hide();
     	 $("#name-text").text($("#Full-Name").val());
+    	 $("#Phone-text").show();
+		 $("#Phone-text-insert").hide();
+		 $("#Phone-text").text($("#Phone-Number").val());
+		 $("#Location-text").show();
+		 $("#Location-text-insert").hide();
+		 $("#Location-text").text($("#Location").val());
 		 $("#sex-text").show();
 		 $("#sex-text-insert").hide();
 		 $("#sex-text").text($("input[type='radio'][name=inlineRadioOptions]:checked").val());
@@ -515,9 +584,25 @@ $(function() {
 		 $("#Description-text").text($("#textareadesp").val());
 		 $("#edit").show();
 		 $("#save").hide();
+		 $("#inlineCheckBox1").attr("disabled", true);
+		 $("#inlineCheckBox2").attr("disabled", true);
+		 $("#inlineCheckBox3").attr("disabled", true);
          }
     );
 });
+
+var addReview = function() {
+		 	var uname="abc@abc.com"
+ 	    	$.post("experts?choice=addcomments&uname="+uname+"&name="+$("#Name").val()+"&tag="+$("#Suggested-Place").val()+"&onplace="+$("#Comment-on-place").val()+"&onuser="+$("#Comment-on-user").val() ,function(data){
+ 	 		console.log("comments added sucessfully");
+ 	 		$( "#review" ).prepend( "<div class=\"row\" style = \"padding-top:10px\"><div class=\"col-xs-12\"><span><b>Name : </b></span><span>"+$("#Name").val()+"</span><br><span><b>Suggestion : </b></span><span>"+$("#Suggested-Place").val()+"</span><br><span><b>Comment on place : </b></span><span> <i>"+$("#Comment-on-place").val()+"</i></span><br><span><b>Comment on user : </b></span><span> <i>"+$("#Comment-on-user").val()+"</i> </span><br><button type=\"button\" class=\"btn btn-default\"><span class=\"glyphicon glyphicon-thumbs-up\" aria-hidden=\"true\"></span> Helpful</button><button type=\"button\" class=\"btn btn-default\"><span class=\"glyphicon glyphicon-thumbs-down\" aria-hidden=\"true\"></span> Not Helpful</button></div></div>" );
+    		$("#Name").val("");
+    		$("#Suggested-Place").val("");
+    		$("#Comment-on-place").val("");
+    		$("#Comment-on-user").val("");
+ 	    	});
+			
+};
 	</script>
 
 	
@@ -542,41 +627,66 @@ $(function() {
             <div class="container-fluid">
             		<div class="row">
                     <div class="col-xs-2">
-                        <img style="width: 187px;height: 188px;border-radius: 179px;-webkit-border-radius: 155px;-moz-border-radius: 150px;" src="img/works/item-1.jpg">
+                        <img style="width: 100%;height: 188px;border-radius: 179px;-webkit-border-radius: 155px;-moz-border-radius: 150px;" src="img/works/item-1.jpg">
                     </div>
                      <div class="col-xs-10">
                        <ol class="breadcrumb">
-                       	<div class="row">
-                       		<div class="col-xs-11">
-	                            <span class="active">
-	                                <span><b>Name : </b></span>
-	                                <span id = "name-text"><i>Sunish Sheth</i></span>
-	                                <span id = "name-text-insert"><input type="text" class="form-control" id="Full-Name" placeholder="Full Name" style="display: inline; width:50%;"></span><br>
-	                               	<span><b>Sex :</b></span> 
-	                               	<span id = "sex-text"><i>Male</i></span>
-	                               	<span id = "sex-text-insert">
-	                               		<label class="radio-inline">
-										  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Male"> Male
-										</label>
-										<label class="radio-inline">
-										  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Female"> Female
-										</label>
-	                               	</span><br>
-	                                <span><b>Interest :</b></span> 
-	                                <span id = "interest-text"><i>Bars</i></span>
-	                                <span id = "interest-text-insert">
-	                                	<select id = "myselect" class="form-control" style="display: inline; width:50%;">
-										  <option>Bars</option>
-										  <option>Restaurants</option>
-										  <option>Amusements</option>
-										  <option>Hangouts</option>
-										  <option>Dance Floors</option>
-										</select>
-	                                </span><br>
-	                            </span>
+                       	<div class="row" >
+                       		<div class="col-xs-11" id="description">
+	                            	<div class="row">
+	                            	<div class="col-xs-6">
+		                                <span><b>Name : </b></span>
+		                                <span id = "name-text"><i></i></span>
+		                                <span id = "name-text-insert"><input type="text" class="form-control" id="Full-Name" placeholder="Full Name" style="display: inline; width:50%;"></span>
+		                            </div>
+		                            <div class="col-xs-6">    
+		                                <span><b>Phone Number : </b></span>
+		                                <span id = "Phone-text"><i></i></span>
+		                                <span id = "Phone-text-insert"><input type="text" class="form-control" id="Phone-Number" placeholder="+1923456789" style="display: inline; width:50%;"></span>
+		                             </div>
+	                                </div>
+	                                <div class="row">
+		                            	<div class="col-xs-6">
+		                               	<span><b>Sex :</b></span> 
+		                               	<span id = "sex-text"><i>Male</i></span>
+		                               	<span id = "sex-text-insert">
+		                               		<label class="radio-inline">
+											  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Male"> Male
+											</label>
+											<label class="radio-inline">
+											  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Female"> Female
+											</label>
+		                               	</span>
+		                               	</div>
+		                               	<div class="col-xs-6">
+		                               	    <input type="checkbox" name="inlineCheckOptions" id="inlineCheckBox1" value="Male"> Call
+		                               	    <input type="checkbox" name="inlineCheckOptions" id="inlineCheckBox2" value="Male"> Video
+		                               	    <input type="checkbox" name="inlineCheckOptions" id="inlineCheckBox3" value="Male"> Audio
+			                             </div>
+	                                </div>
+	                                <div class="row">
+		                            	<div class="col-xs-6">
+			                                <span><b>Interest :</b></span> 
+			                                <span id = "interest-text"><i>Bars</i></span>
+			                                <span id = "interest-text-insert">
+			                                	<select id = "myselect" class="form-control" style="display: inline; width:50%;">
+												  <option>Bars</option>
+												  <option>Restaurants</option>
+												  <option>Amusements</option>
+												  <option>Hangouts</option>
+												  <option>Dance Floors</option>
+												</select>
+			                                </span>
+	                                	</div>
+	                                	<div class="col-xs-6">
+		                                	<span><b>Location : </b></span>
+			                                <span id = "Location-text"><i></i></span>
+			                                <span id = "Location-text-insert"><input type="text" class="form-control" id="Location" placeholder="Dallas" style="display: inline; width:50%;"></span>
+	                                	</div>
+	                                </div>
 	                            <span><b>Description :</b></span> 
 	                            <span id = "Description-text">
-	                            	<i>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</i>
+	                            	<i></i>
 	                            </span>
 	                            <span id = "Description-text-insert"><textarea class="form-control" rows="3" id="textareadesp"></textarea></span><br>
 	                            <span class = "Rating">
@@ -667,37 +777,9 @@ $(function() {
                             <div class="panel-heading">
                                  <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Reviews</h3>
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body" style= "max-height: 660px !important;overflow: scroll;">
                                 <div id="review">
-                                	<div class="row" style = "padding-top:10px">
-                                		<div class="col-xs-12">
-                                			<span><b>Name :</b></span><span> ABC</span><br>
-                                			<span><b>Suggestion :</b></span><span> XYZ Bar</span><br>
-                                			<span><b>Comment on place:</b></span><span> <i>I really very recommendation </i></span><br>
-                                			<span><b>Comment on user:</b></span><span> <i>The user was very sweet while talking and helpful.</i> </span><br>
-                                			<button type="button" class="btn btn-default">
-											  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Helpful
-											</button>
-											<button type="button" class="btn btn-default">
-											  <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> Not Helpful
-											</button>
-                                		</div>
-                                	</div>
-                                	<div class="row" style = "padding-top:10px">
-                                		<div class="col-xs-12">
-                                			<span><b>Name :</b></span><span> ASD</span><br>
-                                			<span><b>Suggestion :</b></span><span> XYZ Bar</span><br>
-                                			<span><b>Comment on place:</b></span><span> <i>I really very recommendation </i></span><br>
-                                			<span><b>Comment on user:</b></span><span> <i>The user was very sweet while talking and helpful.</i> </span><br>
-                                			<button type="button" class="btn btn-default">
-											  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Helpful
-											</button>
-											<button type="button" class="btn btn-default">
-											  <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> Not Helpful
-											</button>
-                                		</div>
-                                		
-                                	</div>
+                                	<!-- add all the comments here -->
                                 </div>
                             </div>
                             </div>
@@ -743,7 +825,7 @@ $(function() {
 							      </div>
 							      <div class="modal-footer">
 							        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							        <button type="button" class="btn btn-primary">Save changes</button>
+							        <button type="button" class="btn btn-primary" id="submit" onClick= "addReview()" data-dismiss="modal">Save changes</button>
 							      </div>
 							    </div>
 							  </div>

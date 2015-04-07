@@ -358,4 +358,191 @@ public class DAO {
 		}
 		return gpo;
 	}
+	
+	
+	public TotalStatVO getTotalStat() {
+		TotalStatVO statVO = new TotalStatVO();
+		statVO.setnMessages(countStats("Message"));
+		statVO.setnAudio(countStats("Audio"));
+		statVO.setnVideo(countStats("Video"));
+		statVO.setnPhone(countStats("Phone"));
+		return statVO;
+	}
+
+	
+	private int countStats(String CommandType) {
+		int count =0;
+		Connection conn = null;
+
+		try {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelfriend?" + "user=root&password=root");
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("select count(*) from callmetric where commType='" + CommandType + "'");
+			while (rs.next()) {
+				count = rs.getInt(1);
+			}
+		}catch(Exception ex) {
+			
+		}finally {
+			
+		}
+		return count;
+	}
+	
+	
+	public ExpertVO getUserInformation(String uname) {
+		Connection conn = null;
+		ExpertVO expert = new ExpertVO();
+		try {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelfriend?" + "user=root&password=root");
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt
+					.executeQuery("select e_name, e_loc, phone_no , is_audio,is_video, is_phone, aboutme "
+							+ "from experttable where " + "e_name='" + uname + "'");
+
+			while (rs.next()) {
+				expert.setName(rs.getString(1));
+				expert.setLocation(rs.getString(2));
+				expert.setPhone(rs.getString(3));
+				expert.setIsAudio(rs.getInt(4));
+				expert.setIsVideo(rs.getInt(5));
+				expert.setIsPhone(rs.getInt(6));
+				expert.setDesc(rs.getString(7));
+
+			}
+
+			conn.close();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+
+		}
+		return expert;
+
+	}
+
+	public List<CommentVO> getComments(String uname) {
+		Connection conn = null;
+		List<CommentVO> commentVOs = new ArrayList<CommentVO>();
+		try {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelfriend?" + "user=root&password=root");
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("select commentplace,commentdate,commentuser,tag,who from "
+					+ "reviews where uname='" + uname + "'");
+			while (rs.next()) {
+				CommentVO commentVO = new CommentVO();
+				commentVO.setCommentPlace(rs.getString(1));
+				commentVO.setDate(rs.getString(2));
+				commentVO.setCommentUser(rs.getString(3));
+				commentVO.setTag(rs.getString(4));
+				commentVO.setWho(rs.getString(5));
+				commentVOs.add(commentVO);
+
+			}
+			conn.close();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+
+		}
+
+		return commentVOs;
+
+	}
+
+	public int addComment(String uname, String name, String tag, String onplace, String onuser) {
+		Connection conn = null;
+		int ret = 0;
+		PreparedStatement preparedStatement = null;
+		try {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelfriend?" + "user=root&password=root");
+			String insertTableSQL = "INSERT INTO reviews"
+					+ "(uname, commentplace, commentdate, commentuser,tag,who) VALUES" + "(?,?,?,?,?,?)";
+			preparedStatement = conn.prepareStatement(insertTableSQL);
+			preparedStatement.setString(1, uname);
+			preparedStatement.setString(2, onplace);
+			preparedStatement.setDate(3, new Date(System.currentTimeMillis()));
+			preparedStatement.setString(4, onuser);
+			preparedStatement.setString(5, tag);
+			preparedStatement.setString(6, name);
+			ret = preparedStatement.executeUpdate();
+			conn.close();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+
+		}
+		return ret;
+	}
+
+	public int updateInfo(String uname, String phone, String location, String aboutme, int isPhone, int isAudio,
+			int isVideo, int isMessage) {
+
+		Connection conn = null;
+		int ret = 0;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelfriend?" + "user=root&password=root");
+			String updateSQL = "UPDATE experttable set phone_no=?,aboutme=?,e_loc=?,is_phone=?,is_audio=?,is_video=?,is_message=? where e_name=?";
+			preparedStatement = conn.prepareStatement(updateSQL);
+			preparedStatement.setString(1, phone);
+			preparedStatement.setString(2, aboutme);
+			preparedStatement.setString(3, location);
+			preparedStatement.setInt(4,isPhone );
+			preparedStatement.setInt(5,isAudio );
+			preparedStatement.setInt(6,isVideo );
+			preparedStatement.setInt(7,isMessage );
+			preparedStatement.setString(8, uname);
+			ret = preparedStatement.executeUpdate();
+			conn.close();
+
+		}
+
+		catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+
+		}
+		return ret;
+
+	}
 }
