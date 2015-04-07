@@ -10,6 +10,7 @@ public class ExpertVO {
 	private Integer isMessage;
 	private String phone;
 	private Integer isPhone;
+	private String desc;
 
 	
 	
@@ -77,4 +78,13 @@ public class ExpertVO {
 		this.isMessage = isMessage;
 	}
 
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	
 }
