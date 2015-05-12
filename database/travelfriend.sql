@@ -150,6 +150,143 @@ INSERT INTO `location` VALUES (1,'Dallas,TX'),(2,'Arlington,TX'),(3,'Austin,TX')
 UNLOCK TABLES;
 
 --
+-- Table structure for table `page`
+--
+
+DROP TABLE IF EXISTS `page`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `page` (
+  `page_id` varchar(100) NOT NULL DEFAULT '',
+  `page_name` varchar(250) DEFAULT NULL,
+  `page_likes` int(11) DEFAULT NULL,
+  PRIMARY KEY (`page_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `page`
+--
+
+LOCK TABLES `page` WRITE;
+/*!40000 ALTER TABLE `page` DISABLE KEYS */;
+/*!40000 ALTER TABLE `page` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `page_post`
+--
+
+DROP TABLE IF EXISTS `page_post`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `page_post` (
+  `post_id` varchar(100) NOT NULL DEFAULT '',
+  `message` varchar(1000) DEFAULT NULL,
+  `created_time` date DEFAULT NULL,
+  `shares_count` int(11) DEFAULT NULL,
+  `like_ids` varchar(5000) DEFAULT NULL,
+  `page_id` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`post_id`),
+  KEY `page_id` (`page_id`),
+  CONSTRAINT `page_post_ibfk_1` FOREIGN KEY (`page_id`) REFERENCES `page` (`page_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `page_post`
+--
+
+LOCK TABLES `page_post` WRITE;
+/*!40000 ALTER TABLE `page_post` DISABLE KEYS */;
+/*!40000 ALTER TABLE `page_post` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `page_tweets`
+--
+
+DROP TABLE IF EXISTS `page_tweets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `page_tweets` (
+  `tweet_id` varchar(100) NOT NULL DEFAULT '',
+  `tweet_text` varchar(250) DEFAULT NULL,
+  `created_time` date DEFAULT NULL,
+  `retweet_count` int(11) DEFAULT NULL,
+  `favourites_ids` varchar(5000) DEFAULT NULL,
+  `page_id` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`tweet_id`),
+  KEY `page_id` (`page_id`),
+  CONSTRAINT `page_tweets_ibfk_1` FOREIGN KEY (`page_id`) REFERENCES `page_twitter` (`page_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `page_tweets`
+--
+
+LOCK TABLES `page_tweets` WRITE;
+/*!40000 ALTER TABLE `page_tweets` DISABLE KEYS */;
+/*!40000 ALTER TABLE `page_tweets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `page_twitter`
+--
+
+DROP TABLE IF EXISTS `page_twitter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `page_twitter` (
+  `page_id` varchar(100) NOT NULL DEFAULT '',
+  `page_name` varchar(250) DEFAULT NULL,
+  `page_followers` int(11) DEFAULT NULL,
+  PRIMARY KEY (`page_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `page_twitter`
+--
+
+LOCK TABLES `page_twitter` WRITE;
+/*!40000 ALTER TABLE `page_twitter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `page_twitter` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `post_comments`
+--
+
+DROP TABLE IF EXISTS `post_comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `post_comments` (
+  `comment_id` varchar(100) NOT NULL DEFAULT '',
+  `post_id` varchar(100) DEFAULT NULL,
+  `comment_message` varchar(5000) DEFAULT NULL,
+  `likes_count` int(11) DEFAULT NULL,
+  `created_time` date DEFAULT NULL,
+  `page_id` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`comment_id`),
+  KEY `post_id` (`post_id`),
+  KEY `page_id` (`page_id`),
+  CONSTRAINT `post_comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `page_post` (`post_id`),
+  CONSTRAINT `post_comments_ibfk_2` FOREIGN KEY (`page_id`) REFERENCES `page` (`page_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `post_comments`
+--
+
+LOCK TABLES `post_comments` WRITE;
+/*!40000 ALTER TABLE `post_comments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `post_comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `rating`
 --
 
@@ -236,4 +373,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-04-07  1:09:41
+-- Dump completed on 2015-05-12 11:51:16
